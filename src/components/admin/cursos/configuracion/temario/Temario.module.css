@@ -1,0 +1,206 @@
+.Temario {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.Temario h2 {
+    font-size: 1.5em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-undecimo);
+}
+
+.AgregarModulo {
+    width: 150px;
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--btn-bg-boton);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.Modulos {
+    list-style: none;
+    padding-bottom: 50px;
+}
+
+.Modulos .Modulos_Li {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-primario);
+    background-color: var(--bg-undecimo);
+    margin-bottom: 15px;
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+}
+
+.Modulos_Li_Titulo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.Modulos_Li_Titulo_div span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+   
+}
+
+
+
+.Modulos_Li_Titulo_div p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-terciario);;
+}
+
+
+.Botones {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 10px;
+}
+
+
+.Modulos .Modulos_Li.ModuloSeleccionado {
+    font-weight: 500;
+}
+
+
+.Boton_Editar {
+    width: 120px;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--bg-sexto);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.AgregarTema {
+    width: 120px;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--btn-bg-boton);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.AgregarQuiz {
+    width: 120px;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--btn-bg-quiz);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.SinTemas {
+    width: 70%;
+    border-bottom: 1px solid var(--border-claro);
+    padding-bottom: 20px;
+}
+
+.Temas {
+    width: 100%;
+    list-style: none;
+   
+}
+
+.Temas_Li {
+    font-size: 18px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-primario);
+    border-top: 1px solid var(--border-claro);
+    border-bottom: 1px solid var(--border-claro);
+}
+
+.Icono_Li {
+    color: var(--btn-bg-boton);
+}
+
+
+.Temas_Li_Titulo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 15px;
+}
+
+.ModuloContenido .Vacio {
+    font-size: 15px;
+    margin-left: 35px;
+    color: var(--text-rojo);
+}

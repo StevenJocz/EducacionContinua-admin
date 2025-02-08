@@ -1,0 +1,64 @@
+
+.CursosContenido_Progreso {
+    width: 20%;
+    background-color: var(--bg-undecimo);
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 40px;
+}
+
+.CursosContenido_Progreso h4 {
+    font-size: 18px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-primario);
+    text-align: center;
+}
+
+.CursosContenido_Progreso h5 {
+    font-size: 25px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-primario);
+    text-align: center;
+}
+
+.Progreso {
+    width: 100%;
+    min-height: 6px;
+    background-color: var(--background-dark-body);
+    margin-top: 10px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    overflow: hidden;
+}
+
+.Progreso_inner {
+    height: 6px;
+    background-size: 30px;
+    background-image: url(../../../../../public/img/svg.png);
+    background-color: var(--bg-secundario);
+    animation: 10s linear infinite bar-progress;
+    -webkit-animation: 10s linear infinite bar-progress;
+}
+
+@keyframes bar-progress {
+    from {
+        background-position: 0 0
+    }
+
+    to {
+        background-position: -60px -60px
+    }
+}
+

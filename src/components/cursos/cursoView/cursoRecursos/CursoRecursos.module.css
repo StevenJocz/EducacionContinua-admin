@@ -1,0 +1,55 @@
+.CursoRecursos {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.CursoRecursos h4 {
+    font-size: 25px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-undecimo);
+
+}
+
+.CursoRecursos_Content {
+    width: 100%;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.CursoRecursos_Content  a{
+    text-decoration: none;
+}
+
+.CursoRecursos_Content_Card {
+    padding: 20px;
+    border: 1px solid var(--border-claro);
+    text-align: center;
+    border-radius: 1.3em;
+    -webkit-border-radius: 1.3em;
+    -moz-border-radius: 1.3em;
+    -ms-border-radius: 1.3em;
+    -o-border-radius: 1.3em;
+    cursor: pointer;
+}
+
+.CursoRecursos_Content_Card h2 {
+    font-size: 25px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-primario);
+    margin-bottom: 10px;
+}
+
+.CursoRecursos_Content_Card h3 {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-primario);
+    margin-top: 10px;
+}

@@ -1,0 +1,59 @@
+.Publicidad {
+    width: 100%;
+    background-image: url(https://codigofacilito.com/assets/bootcamps/sql/bg-a52ec1800ad2224dd50b987fa68407fc3de32f6e8ed9f4841dcedd1fd9b4ff7d.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 1.2em;
+    -webkit-border-radius: 1.2em;
+    -moz-border-radius: 1.2em;
+    -ms-border-radius: 1.2em;
+    -o-border-radius: 1.2em;
+    margin: 40px 0;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Publicidad h2 {
+    font-size: 3.7em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-cuaternario);
+}
+
+.Publicidad h2 span {
+    background: var(--Gradient, linear-gradient(100deg, var(--text-cuaternario) 17.82%, #ffffff5c 87.12%));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Publicidad h3 {
+    font-size: 2.7em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-octavo);
+}
+
+
+.Primary {
+    width: 300px;
+    height: 3rem;
+    border-radius: .5rem;
+    background-color: var(--bg-octavo);
+    color: var(--text-secundario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--btn-shadow-secundario);
+    margin-top: 20px;
+
+}

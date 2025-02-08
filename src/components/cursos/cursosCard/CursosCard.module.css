@@ -1,0 +1,32 @@
+.Link {
+    text-decoration: none;
+}
+
+.CursosCard {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.7em;
+    -webkit-border-radius: 0.7em;
+    -moz-border-radius: 0.7em;
+    -ms-border-radius: 0.7em;
+    -o-border-radius: 0.7em;
+    background-color: var(--bg-blanco);
+    border: 1px solid var(--border-septimo);
+    cursor: pointer;
+}
+
+.CursosCard h2 {
+    font-size: 1.2em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-secundario);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin: 5px 15px;
+}
+

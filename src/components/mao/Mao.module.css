@@ -1,0 +1,79 @@
+
+.Mao {
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+}
+
+.Mao_Content {
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.span {
+    cursor: pointer;
+    border: 1.5px solid #ffffff;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 20%;
+    background: #ffffff;
+    border-radius: 100%;
+    transition: all;
+}
+
+.span_1 {
+    border-radius: 40% 42% 45% 55%;
+    animation: gogo 5200ms infinite linear;
+    -webkit-animation: gogo 9s infinite linear;
+    opacity: .5;
+}
+
+.span_2 {
+    border-radius: 55% 41% 65% 43%;
+    animation: gogo-2 5500ms infinite linear;
+    -webkit-animation: gogo-2 9s infinite linear;
+    opacity: .6;
+}
+
+.span_3 {
+    border-radius: 52% 72% 45% 61%;
+    animation: gogo 2ms infinite linear;
+    opacity: .7;
+    -webkit-animation: gogo 6s infinite linear;
+}
+
+.span_4 {
+    border-radius: 58% 56% 72% 58%;
+    animation: gogo-2 6s infinite linear;
+    opacity: .8;
+    -webkit-animation: gogo-2 10s infinite linear;
+}
+
+
+@keyframes gogo {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gogo-2 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-720deg);
+    }
+}
+
+.Mao_Content_Imagen {
+    position: absolute;
+    top: 10px;
+    left: 23%;
+}

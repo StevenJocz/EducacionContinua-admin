@@ -1,0 +1,65 @@
+.CursoInstructor {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.CursoInstructor h4 {
+    font-size: 25px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-undecimo);
+
+}
+
+.CursoInstructor_Content {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.Imagen {
+    border-radius: 1.3em;
+    -webkit-border-radius: 1.3em;
+    -moz-border-radius: 1.3em;
+    -ms-border-radius: 1.3em;
+    -o-border-radius: 1.3em;
+}
+
+.CursoInstructor_Content_Informacion {
+    width: 60%;
+}
+
+.CursoInstructor_Content_Informacion h2 {
+    font-size: 30px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-primario);
+}
+
+.CursoInstructor_Content_Informacion h3 {
+    font-size: 25px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-terciario);
+}
+
+.CursoInstructor_Content_Informacion p {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.Icono {
+    font-size: 30px;
+    color: var(--text-primario);
+    margin: 20px 5px;
+    cursor: pointer;
+}

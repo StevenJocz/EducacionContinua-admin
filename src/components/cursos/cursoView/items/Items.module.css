@@ -1,0 +1,81 @@
+
+.Items {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.Items h4 {
+    font-size: 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-undecimo);
+}
+
+.Items_Content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 120px 120px;
+    gap: 1em;
+    margin-top: 20px;
+}
+
+.Items_Content_Card {
+    width: 95%;
+    height: 110px;
+    background-color: var(--bg-undecimo);
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.Items_Content_Card:hover {
+    background-color: var(--bg-undecimo-hover);
+}
+
+.Curso_circulo {
+    height: 50px;
+    width: 50px;
+    background-color: var(--background-dark-body);
+    color: var(--text-decimo);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15%;
+    position: relative;
+}
+
+.Curso_circulo_notificacion{
+    position: absolute;
+    top: 0;
+    right: -15px;
+}
+
+.Curso_circulo_notificacion span {
+    font-size: 20px;
+}
+
+.Curso_Icono {
+    font-size: 30px;
+
+}
+
+.Items_Content_Card h5{
+    font-size: 14px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-primario);
+    text-align: center;
+    margin-top: 10px;
+}

@@ -1,0 +1,216 @@
+.CursosContenido {
+    width: 100%;
+    margin-top: 40px;
+
+}
+
+.CursosContenido_Encabezado {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.CursosContenido_Encabezado h2 {
+    font-size: 1.7em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-noveno);
+    
+}
+
+.CursosContenido_Encabezado span {
+    font-size: 1.2em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    border-radius: .5rem;
+    background-color: var(--bg-verde);
+    color: var(--text-primario);
+    will-change: transform;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    padding: 5px 10px;
+
+}
+
+.CursosContenido_Reproductor {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--bg-texto);
+    border-radius: 1.1rem;
+    -webkit-border-radius: 1.1rem;
+    -moz-border-radius: 1.1rem;
+    -ms-border-radius: 1.1rem;
+    -o-border-radius: 1.1rem;
+    border: 1px solid var(--border-claro);
+}
+
+.CursosContenido_Body {
+    margin-top: 40px;
+}
+
+.CursosContenido_Body p {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.CursosContenido_Body img {
+    margin: 15px 0;
+    width: 100%;
+    height: auto;
+}
+
+.CursosContenido_Body p strong {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-primario);
+}
+
+.CursosContenido_Body ul,
+.CursosContenido_Body ol {
+    list-style: none;
+}
+
+.CursosContenido_Body ul li,
+.CursosContenido_Body ol li {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-top: 10px;
+    line-height: 1.5;
+    margin-left: 5px;
+}
+
+.CursosContenido_Body table {
+    margin: 20px 0;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+.CursosContenido_Body table thead {
+    background-color: var(--bg-cuaternario);
+    padding: 10px;
+
+}
+
+.CursosContenido_Body table thead tr th {
+    padding: 10px;
+    font-size: 18px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+}
+
+
+.CursosContenido_Body table tbody tr td {
+    padding: 10px;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    color: var(--text-undecimo);
+
+}
+
+.CursosContenido_Body a {
+    text-decoration: none;
+    color: var(--text-septimo);
+    padding: 0 5px;
+}
+
+.CursosContenido_Body a:hover {
+    color: var(--text-terciario);
+}
+
+.Felicidades {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 20%;
+    z-index: 100;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.801); 
+}
+
+.Felicidades::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://usagif.com/wp-content/uploads/gif/confetti-27.gif);
+    background-size: contain;
+    opacity: 0.7;
+    z-index: 1; 
+}
+
+.Felicidades p {
+    font-size: 4.7em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-noveno);
+    position: relative;
+    z-index: 1000; 
+}
+
+.Felicidades button {
+    width: 150px;
+    height: 50px;
+    border-radius: .5rem;
+    background-color: var(--bg-octavo);
+    color: var(--text-secundario);
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000; 
+   margin-top: 20px;
+}
+
+.CursosContenido_Continuar {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.CursosContenido_Continuar button{
+    width: 200px;
+    height: 2.5rem;
+    border-radius: .5rem;
+    background-color: var(--bg-octavo);
+    color: var(--text-secundario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--btn-shadow-secundario);
+
+}

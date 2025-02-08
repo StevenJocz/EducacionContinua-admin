@@ -1,0 +1,356 @@
+.CursoQuiz {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.CursoQuiz_Encabezado {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.CursoQuiz_Encabezado h2 {
+    font-size: 1.7em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-noveno);
+}
+
+.CursoQuiz_Encabezado span {
+    font-size: 1.2em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    border-radius: .5rem;
+    background-color: var(--bg-verde);
+    color: var(--text-primario);
+    will-change: transform;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+}
+
+.CursoQuiz p {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.CursoQuiz_Pre {
+    width: 100%;
+    margin-top: 40px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--bg-texto);
+    border-radius: 1.1rem;
+    -webkit-border-radius: 1.1rem;
+    -moz-border-radius: 1.1rem;
+    -ms-border-radius: 1.1rem;
+    -o-border-radius: 1.1rem;
+    border: 1px solid var(--border-claro);
+    margin-bottom: 20px;
+}
+
+.CursoQuiz_Pre ul {
+    list-style: none;
+}
+
+.CursoQuiz_Pre ul li {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-top: 10px;
+    line-height: 1.5;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.CursoQuiz_Pre ul li span {
+    font-weight: 500;
+    color: var(--text-undecimo);
+}
+
+.CursoQuiz_Pre button {
+    width: 300px;
+    height: 3rem;
+    border-radius: .5rem;
+    background-color: var(--bg-octavo);
+    color: var(--text-secundario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--btn-shadow-secundario);
+    margin-top: 20px;
+}
+
+.CursoQuiz_Content {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.CursoQuiz_Content_Respuesta h3 {
+    font-size: 25px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-noveno);
+    line-height: 1.5;
+}
+
+.CursoQuiz_Content_Respuesta ul {
+    list-style: none;
+}
+
+.CursoQuiz_Content_Respuesta h4 {
+    font-size: 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-undecimo);
+    line-height: 1.5;
+}
+
+.CursoQuiz_Content_Header {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.CursoQuiz_Content_Header h3 {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    line-height: 1.5;
+}
+
+.Progreso {
+    width: 100%;
+    min-height: 6px;
+    background-color: var(--bg-undecimo);
+    margin-top: 10px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    overflow: hidden;
+}
+
+.Progreso_inner {
+    height: 6px;
+    background-size: 30px;
+    background-image: url(../../../../../public/img/svg.png);
+    background-color: var(--bg-verde);
+    animation: 10s linear infinite bar-progress;
+    -webkit-animation: 10s linear infinite bar-progress;
+}
+
+
+
+@keyframes bar-progress {
+    from {
+        background-position: 0 0
+    }
+
+    to {
+        background-position: -60px -60px
+    }
+}
+
+
+.CursoQuiz_Content_Card {
+    width: 100%;
+   
+}
+
+.CursoQuiz_Content_Card h3 {
+    font-size: 1.7em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-noveno);
+    margin-bottom: 20px;
+}
+
+.CursoQuiz_Content_Card ul {
+    list-style: none;
+}
+
+.CursoQuiz_Content_Card ul li {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-top: 10px;
+    line-height: 1.5;
+    margin-left: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.CursoQuiz_Btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-top: 20px;
+}
+
+.CursoQuiz_Btn_Comprobar {
+    width: 300px;
+    height: 3rem;
+    border-radius: .5rem;
+    background-color: var(--bg-octavo);
+    color: var(--text-secundario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--btn-shadow-secundario);
+}
+
+.CursoQuiz_Btn_Siguiente {
+    width: 300px;
+    height: 3rem;
+    border-radius: .5rem;
+    background-color: var(--bg-octavo);
+    color: var(--text-secundario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--btn-shadow-secundario);
+
+}
+
+.CursoQuiz_Btn_Cursor {
+    cursor: no-drop;
+}
+
+
+.CursoQuiz_Content_Respuesta {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.CursoQuiz_Content_Respuesta h3 {
+    font-size: 27px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-noveno);
+    line-height: 1.5;
+}
+
+.CursoQuiz_Content_Respuesta ul {
+    list-style: none;
+    margin-top: 40px;
+}
+
+.CursoQuiz_Content_Respuesta ul li  {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--bg-texto);
+    border-radius: 1.1rem;
+    -webkit-border-radius: 1.1rem;
+    -moz-border-radius: 1.1rem;
+    -ms-border-radius: 1.1rem;
+    -o-border-radius: 1.1rem;
+    border: 1px solid var(--border-claro);
+    margin-bottom: 20px;
+}
+
+.CursoQuiz_Content_Respuesta ul li h4 {
+    font-size: 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-noveno);
+    line-height: 1.5;
+}
+
+.CursoQuiz_Content_Respuesta ul li p {
+    font-size: 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    line-height: 1.5;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+.CursoQuiz_Content_Respuesta ul li p span {
+    font-weight: 500;
+    
+}
+
+.CursoQuiz_Content_Respuesta_Correcta {
+    font-size: 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-terciario);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.CursoQuiz_Content_Respuesta_InCorrecta {
+    font-size: 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-rojo);
+    line-height: 1.5;
+    gap: 5px;
+}
+
+.CursoQuiz_Content_Respuesta_InCorrecta span:first-of-type {
+    font-weight: 500;
+    
+}
+
+.CursoQuiz_Content_Respuesta_InCorrecta span {
+    font-size: 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    line-height: 1.5;
+}

@@ -1,0 +1,101 @@
+
+.CursosContenido_Informacion {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.CursosContenido_Informacion h4 {
+    font-size: 25px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-undecimo);
+
+}
+
+.CursosContenido_Informacion p {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-primario);
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.CursosContenido_Informacion_Content {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--bg-texto);
+    border-radius: 1.1rem;
+    -webkit-border-radius: 1.1rem;
+    -moz-border-radius: 1.1rem;
+    -ms-border-radius: 1.1rem;
+    -o-border-radius: 1.1rem;
+    border: 1px solid var(--border-claro);
+    margin-top: 20px;
+}
+
+.Icono {
+    font-size: 60px;
+    background-color: var(--bg-undecimo);
+    color: var(--text-primario);
+    padding: 10px;
+    border-radius: 1.1rem;
+}
+
+.CursosContenido_Informacion_Content p {
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-primario);
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.CursosContenido_Informacion ul {
+    width: 100%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.CursosContenido_Informacion ul li {
+    display: block;
+    text-align: center;
+    background-color: var(--bg-undecimo);
+    padding: 20px;
+    border-radius: 1.3em;
+    -webkit-border-radius: 1.3em;
+    -moz-border-radius: 1.3em;
+    -ms-border-radius: 1.3em;
+    -o-border-radius: 1.3em;
+}
+
+
+.CursosContenido_Informacion_Icono {
+    height: 50px;
+    width: 50px;
+    background-color: var(--background-dark-body);
+    color: var(--text-decimo);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30%;
+}
+
+.Informacion_Icono {
+    font-size: 30px;
+}
+
+.CursosContenido_Informacion ul li p {
+    font-size: 15px;
+}

@@ -1,0 +1,51 @@
+.ModulosYTemas {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    list-style: none;
+}
+
+.ModulosYTemas li {
+    font-size: 18px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-bottom: 20px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.ModulosYTemas_Modulo {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80% 10% 10%;
+    align-items: center;
+    gap: 5px;
+}
+
+.ModulosYTemas_Temas {
+    list-style: none;
+    cursor: pointer;
+}
+
+
+.ModulosYTemas_Temas li {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    margin: 5px;
+    border-bottom: 1px solid var(--border-secundarioClaro);
+    
+}
+
+.TemaSeleccionado {
+    color: var(--text-terciario);
+    font-weight: 600;
+}
+
+.IconoAprobado {
+    color: var(--text-verde);
+}

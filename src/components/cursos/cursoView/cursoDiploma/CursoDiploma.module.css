@@ -1,0 +1,28 @@
+.CursoDiploma {
+    width: 20%;
+    background-color: var(--bg-undecimo);
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 40px;
+}
+
+.CursoDiploma h4 {
+    font-size: 18px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-primario);
+    text-align: center;
+}
+
+.CursoDiploma_Icono {
+    color: var(--text-septimo);
+    font-size: 40px;
+    margin-top: 5px;
+}
+

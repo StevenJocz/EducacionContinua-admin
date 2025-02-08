@@ -1,0 +1,128 @@
+.Registro {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.Registro_Content {
+    width: 100%;
+    height: 95vh;
+    padding: 40px 5%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.Registro_Content_Text {
+    width: 60%;
+    position: relative;
+}
+
+.Registro_Content_Text a {
+    text-decoration: none;
+}
+
+.Registro_Content_Text h2 {
+    font-size: 6.5em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 90%;
+    background: var(--Gradient, linear-gradient(100deg, var(--text-secundario) 37.82%, #fafbfac9 87.12%));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+}
+
+.Imagen {
+    position: absolute;
+    top: -40px;
+    right: -90px;
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.Registro_Content_Formulario {
+    width: 40%;
+    background-color: var(--bg-blanco);
+    box-shadow: var(--btn-shadow-secundario);
+    border-radius: 1.5rem;
+    padding: 20px;
+    position: relative;
+    z-index: 100;
+}
+
+.Registro_Content_Formulario h2 {
+    font-size: 3em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-secundario);
+    text-align: center;
+}
+
+.Registro_Content_Formulario h2 span {
+    background: var(--Gradient, linear-gradient(100deg, var(--text-secundario) 37.82%, var(--text-terciario) 87.12%));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.Registro_Content_Body_Aviso {
+    text-decoration: none;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-terciario);
+    margin: 20px 0;
+
+}
+
+.Registro_Content_Body_Aviso a {
+    font-style: normal;
+    color: var(--text-secundario);
+    margin: 0 5px;
+}
+
+.Registro_Content_Body_Registro {
+    margin-top: 25px;
+    border-top: 1px solid var(--border-quinto);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Registro_Content_Body_Registro a {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-terciario);
+}
+
+.Registro_Content_Body_Registro a span {
+    color: var(--text-secundario);
+}
+
+.Registro_Footer p {
+    font-size: 1em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-secundario);
+    text-align: center;
+}
