@@ -23,13 +23,17 @@
     --bg-decimo: #FAFBFA; /* Blanco puro o un ligero gris suave */
     --background-dark: #071513;
     --background-dark-body:#1f2130;
-    --bg-undecimo: rgba(108, 117, 141, 0.6);
-    --bg-undecimo-hover: rgba(108, 117, 141, 0.305);
+    --bg-undecimo: #6c758d99;
+    --bg-undecimo-hover: #6c758d4e;
     --bg-texto: #2b2b50aa;
     --bg-texto-hover: #2b2b50;
     --bg-verde:  #078f25;
     --bg-negro: #00000072;
     --bg-rojo: #c90000;
+    --bg-unac: #2a5883;
+    --bg-unac_claro: #76a1b27b;
+    --bg-gris: #cccccc4d;
+    --bg-amarillo: #F5A800;
     
     /* text */
     --text-primario: #ffffff; /* Texto principal (blanco) */
@@ -46,6 +50,7 @@
     --text-negro: #000;
     --text-rojo: #c90000;
     --text-verde:  #05b22a;
+    --text-unac: #2a5883;
 
 
     /* border */

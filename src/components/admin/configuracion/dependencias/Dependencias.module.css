@@ -1,0 +1,135 @@
+.Dependencias h2 {
+    font-size: 1.5em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-undecimo);
+}
+
+.Dependencias p {
+    font-size: 1.2em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    text-align: left;
+    margin-top: 10px;
+}
+
+.Dependencias_Button {
+    width: 200px;
+    font-size: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--btn-bg-boton);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.AddDependencia  {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-negro);
+    z-index: 1000;
+}
+
+.AddDependencia_Content {
+    width: 40%;
+    max-height: 80vh;
+    background-color: var(--background-dark-body);
+    border-radius: 0.7em;
+    -webkit-border-radius: 0.7em;
+    -moz-border-radius: 0.7em;
+    -ms-border-radius: 0.7em;
+    -o-border-radius: 0.7em;
+    border: 1px solid var(--border-claro);
+    padding: 10px;
+    z-index: 1001;
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.AddDependencia_Content::-webkit-scrollbar {
+    width: 1px;
+}
+
+.AddDependencia_Content::-webkit-scrollbar-thumb {
+    background-color:  #ffffff;
+}
+
+.AddDependencia_Content::-webkit-scrollbar-track {
+    background-color: var(--background-dark);
+}
+
+.AddDependencia_Content_Encabezado {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.AddDependencia_Content_Encabezado h2 {
+    font-size: 1.5em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-undecimo);
+}
+
+.AddDependencia_Content_Encabezado_Icono {
+    font-size: 30px;
+    color: var(--text-undecimo);
+    cursor: pointer;
+}
+
+.Formulario_Boton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Formulario_Boton button {
+    width: 150px;
+    font-size: 19px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--btn-bg-boton);
+    color: var(--text-primario);
+    padding: 10px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}

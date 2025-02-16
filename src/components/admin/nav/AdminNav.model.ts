@@ -25,9 +25,14 @@ export const RoutesAdmin: Record<string, Route> = {
         name: 'Eventos',
         icon: IoCalendarOutline
     },
-    USUARIOS: {
-        path: '/dashboard/admin/usuarios',
-        name: 'Usuarios',
+    ESTUDIANTE: {
+        path: '/dashboard/admin/estudiantes',
+        name: 'Estudiantes',
+        icon: IoPersonOutline
+    },
+    PROFESORES: {
+        path: '/dashboard/admin/profesores',
+        name: 'Profesores',
         icon: IoPersonOutline
     },
     INSCRIPCIONES: {

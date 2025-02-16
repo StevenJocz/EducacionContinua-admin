@@ -74,7 +74,25 @@
     text-align: center;
 }
 
-.Grupo_Content table tbody tr td  .Boton_Editar {
+.Grupo_Content table tbody tr .TdProfesor {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10%;
+}
+
+.Grupo_Content table tbody tr .TdProfesor img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.Grupo_Content table tbody tr td .Boton_Editar {
     width: 120px;
     font-size: 15px;
     font-family: "Barlow Condensed", sans-serif;
@@ -91,13 +109,13 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    margin: 0 30%;
+    margin: 0 10%;
     cursor: pointer;
     border: none;
     outline: none;
 }
 
-.Grupo_Content table tbody tr td  .Estado_Activo {
+.Grupo_Content table tbody tr td .Estado_Activo {
     width: 120px;
     font-size: 15px;
     font-family: "Barlow Condensed", sans-serif;
@@ -112,7 +130,7 @@
     -o-border-radius: .7rem;
 }
 
-.Grupo_Content table tbody tr td  .Estado_NoActivo {
+.Grupo_Content table tbody tr td .Estado_NoActivo {
     width: 120px;
     font-size: 15px;
     font-family: "Barlow Condensed", sans-serif;
@@ -127,7 +145,7 @@
     -o-border-radius: .7rem;
 }
 
-.AddGrupo  {
+.AddGrupo {
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -162,7 +180,7 @@
 }
 
 .AddGrupo_Content::-webkit-scrollbar-thumb {
-    background-color:  #ffffff;
+    background-color: #ffffff;
 }
 
 .AddGrupo_Content::-webkit-scrollbar-track {
@@ -203,6 +221,23 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.Select_imagen {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Select_imagen img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 .Formulario_Boton button {

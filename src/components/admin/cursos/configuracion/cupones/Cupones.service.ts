@@ -8,7 +8,7 @@ export const fetchIdCupon = (id: number) => {
         codigo: '123456',
         fechaInicio: new Date('2025-01-01T00:00:00'),
         fechaFin: new Date('2025-08-01T00:00:00'),
-        descuento: '10',
+        descuento: '10000',
         estado: true,
     };
 
@@ -23,7 +23,7 @@ export const fetchCupones = (id: number) => {
             codigo: '123456',
             fechaInicio: new Date('2025-01-01T00:00:00'),
             fechaFin: new Date('2025-08-01T00:00:00'),
-            descuento: '10',
+            descuento: '10000',
             estado: true,
         },
         {
@@ -32,7 +32,7 @@ export const fetchCupones = (id: number) => {
             codigo: '123456',
             fechaInicio: new Date('2025-01-01T00:00:00'),
             fechaFin: new Date('2025-08-01T00:00:00'),
-            descuento: '40',
+            descuento: '4000',
             estado: true,
         },
     ];

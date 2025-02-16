@@ -9,6 +9,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { fetchIdCupon } from './Cupones.service';
+import { formatPrice } from '@/utils/FormatearPrecio';
+import { InputAdornment } from '@mui/material';
 
 interface Props {
     idCurso: number;
@@ -117,10 +119,16 @@ const AddCupones: React.FC<Props> = ({ idCurso, idCupon, onClose }) => {
                                         variant="outlined"
                                         size="small"
                                         color="secondary"
-                                        placeholder="%00"
+                                        placeholder="00000"
                                         value={values.descuento}
                                         onChange={(e) => {
-                                            setFieldValue('descuento', e.target.value);
+                                            const formattedValue = formatPrice(e.target.value);
+                                            setFieldValue('descuento', formattedValue);
+                                        }}
+                                        slotProps={{
+                                            input: {
+                                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                            },
                                         }}
                                     />
                                     <ErrorMessage

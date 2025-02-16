@@ -28,6 +28,8 @@ const Curso = () => {
     const { student } = useParams();
     const decoded = Buffer.from(student as string, 'base64').toString();
     const [id] = decoded.split('|');
+
+
     const { cursos, setCursos } = useCursos();
     const [tema, setTema] = useState<Tema | undefined>(undefined);
     const [quiz, setQuiz] = useState<Quiz | undefined>(undefined);

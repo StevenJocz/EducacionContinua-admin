@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: "Educación Continua - Admin",
   description: "Descubre tu potencial con MAO Word: el primer paso hacia el dominio del inglés comienza aquí. ¡Inscríbete y transforma tu futuro!",
   icons: {
-    icon: ['./favicon.ico'],
-    apple: ['./favicon.ico'],
+    icon: ['../../favicon.ico'],
+    apple: ['../../favicon.ico'],
   },
 };
 

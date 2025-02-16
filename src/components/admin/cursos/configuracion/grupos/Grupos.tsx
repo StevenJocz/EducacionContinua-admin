@@ -51,6 +51,9 @@ const Grupos: React.FC<Props> = ({ idCurso }) => {
                 <span>Grupo</span>
               </th>
               <th>
+                <span>Profesor</span>
+              </th>
+              <th>
                 <span>Fecha Inicio</span>
               </th>
               <th>
@@ -71,6 +74,7 @@ const Grupos: React.FC<Props> = ({ idCurso }) => {
             {grupos.map((grupo) => (
               <tr key={grupo.id}>
                 <td><span>{grupo.nombre}</span></td>
+                <td className={style.TdProfesor}><img src={grupo.foto} alt="" /><span>{grupo.profesor}</span></td>
                 <td><span>{grupo.fechaInicio.toLocaleDateString()}</span></td>
                 <td><span>{grupo.fechaFin.toLocaleDateString()}</span></td>
                 <td><span>${formatPrice(grupo.precio)}</span></td>

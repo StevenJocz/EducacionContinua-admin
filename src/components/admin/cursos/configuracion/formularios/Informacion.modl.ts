@@ -5,5 +5,6 @@ export interface InformacionCurso {
     categoria: string;
     dependencia: string;
     imagen: string;
+    dirigido: string;
     aprendera: string[];
 }

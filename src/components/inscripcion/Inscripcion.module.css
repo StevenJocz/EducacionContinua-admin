@@ -1,0 +1,433 @@
+.Inscripcion {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.Inscripcion_Header {
+    width: 100%;
+    height: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 15px;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background-color: var(--bg-unac);
+    display: flex;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    z-index: 1;
+}
+
+.Inscripcion_Header a img {
+    width: 150px;
+}
+
+.Inscripcion_Content {
+    width: 85%;
+    margin: 0 5%;
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+.TextoInformativo {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.TextoInformativo p {
+    color: var(--text-unac);
+    font-size: 16px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.TextoInformativo span {
+    color: var(--text-verde);
+    font-size: 40px;
+}
+
+.Inscripcion_Formulario {
+    width: 50%;
+    height: 90vh;
+    padding: 0 5%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.Inscripcion_Formulario::-webkit-scrollbar {
+    width: 3px;
+}
+
+.Inscripcion_Formulario::-webkit-scrollbar-thumb {
+    background-color: #00000069;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.Inscripcion_Formulario::-webkit-scrollbar-track {
+    background-color: #262b3400;
+}
+
+.Formulario {
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+
+.Formulario_Titulo {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.Formulario_Titulo h3 {
+    font-size: 1.3em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-bottom: 20px;
+}
+
+.Formulario_Dos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.Formulario_Dos div {
+    width: 100%;
+}
+
+.Opcion_Faturacion {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.Opcion_Faturacion .Opcion_Faturacion_Div {
+    width: 100%;
+    height: 40px;
+    background-color: var(--bg-unac_claro);
+    margin-bottom: 10px;
+    padding: 0 10px;
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Opcion_Faturacion .Opcion_Faturacion_Div p {
+    font-size: 1em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.Opcion_Faturacion_Div .Opcion_Faturacion_Div_Circulo {
+    width: 25px;
+    height: 25px;
+    background-color: var(--bg-blanco);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.Opcion_Faturacion_Div .Opcion_Faturacion_Div_Circulo div {
+    width: 10px;
+    height: 10px;
+    background-color: var(--bg-unac);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.Formulario_MetodosPago {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+.Formulario_MetodosPago img {
+    width: 60px;
+}
+
+
+.Formulario_DatosPersonales {
+    color: var(--text-unac);
+    font-size: 16px;
+    font-family: "Barlow Condensed", sans-serif;
+    margin-top: 20px;
+}
+
+.Formulario_DatosPersonales a {
+    font-family: "Barlow Condensed", sans-serif;
+    color: var(--text-verde);
+    font-size: 16px;
+}
+
+.Formulario_Boton {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.Inscripcion .Error {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    color: var(--text-rojo);
+    font-weight: 300 !important;
+    font-style: italic;
+    text-align: right;
+    margin-top: -13px;
+    margin-bottom: 20px;
+}
+
+.Formulario_Boton button {
+    width: 100%;
+    height: 3.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 4px 24px rgba(9, 50, 66, .25);
+    background-color: var(--bg-unac);
+    color: var(--text-primario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.Inscripcion_Informacion {
+    width: 50%;
+    background-color: var(--bg-gris);
+    padding: 20px 5% 0 5%;
+}
+
+.Informacion_Curso {
+    width: 100%;
+}
+
+.Informacion_Curso img {
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+}
+
+.Informacion_Curso h2 {
+    font-size: 1.6em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-unac);
+}
+
+.Informacion_Curso h4 {
+    font-size: 1em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-undecimo);
+}
+
+.Informacion_Curso p {
+    font-size: 1.7em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-unac);
+    font-style: inherit;
+}
+
+.Informacion_Curso span {
+    font-size: 0.7em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-right: 20px;
+    text-decoration: line-through;
+}
+
+.Informacion_Cupon_Tengo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+.Informacion_Cupon_Tengo button {
+    width: 100px;
+    height: 2rem;
+    border-radius: .2rem;
+    box-shadow: 0 4px 24px rgba(9, 50, 66, .25);
+    background-color: var(--bg-verde);
+    color: var(--text-primario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -ms-border-radius: .2rem;
+    -o-border-radius: .2rem;
+    margin-bottom: 10px;
+}
+
+.Informacion_Cupon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.Informacion_Cupon button {
+    width: 100px;
+    height: 2rem;
+    border-radius: .2rem;
+    box-shadow: 0 4px 24px rgba(9, 50, 66, .25);
+    background-color: var(--bg-amarillo);
+    color: var(--text-primario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -ms-border-radius: .2rem;
+    -o-border-radius: .2rem;
+    margin-bottom: 10px;
+}
+
+
+.Cupon_mensaje {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    color: var(--text-sexto);
+    font-weight: 300 !important;
+    font-style: italic;
+    text-align: right;
+    margin-top: -13px;
+    margin-bottom: 20px;
+}
+
+.Informacion_Totales {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.Informacion_Totales div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.Informacion_Totales div h5 {
+    font-size: 1.1em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--text-undecimo);
+}
+
+.Informacion_Totales div h5 span {
+    font-weight: 300;
+}
+
+.Informacion_Totales div:nth-of-type(4) h5 {
+    font-size: 1.4em;
+}
+
+.Informacion_Totales div h4 {
+    font-size: 1.4em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-unac);
+}
+
+.Informacion_Totales div:nth-of-type(4) h4 {
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+.Informacion_Totales p {
+    font-size: 1em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-unac);
+}
+
+.ImagenFondo {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    opacity: 0.1;
+}

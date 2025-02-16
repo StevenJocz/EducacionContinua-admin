@@ -1,9 +1,9 @@
 import { Configuracion } from "@/components/admin/cursos/configuracion"
 
-const AddCurso = () => {
+const AddCursoPage = () => {
     return (
         <Configuracion/>
     )
 }
 
-export default AddCurso
+export default AddCursoPage

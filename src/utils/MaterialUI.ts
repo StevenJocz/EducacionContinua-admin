@@ -1,4 +1,4 @@
-import { styled, TextField, TextareaAutosize } from '@mui/material';
+import { styled, TextField, TextareaAutosize, tableCellClasses, TableCell, TableRow, Pagination } from '@mui/material';
 
 export const StyledTextField = styled(TextField)({
     width: '100%',
@@ -103,4 +103,63 @@ export const StyledDatePicker = styled(DatePicker)({
         color: '#8b99ab',
     },
 });
+
+
+export const StyledTableCell = styled(TableCell)(() => ({
+    fontFamily: '"Barlow Condensed", sans-serif', 
+    [`&.${tableCellClasses.head}`]: {
+        borderBottom: "1px solid #fff",
+        color: "#fff",
+        fontWeight: 600,
+        fontSize: 14,
+        textTransform: "uppercase", 
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 15,
+        color: "#fff",
+        border: "1px solid #1f2130",
+    },
+}));
+
+export const StyledTableRow = styled(TableRow)(() => ({
+    fontFamily: '"Barlow Condensed", sans-serif',
+    backgroundColor: "#6c758d99",
+    border: "1px solid #1f2130",
+    color: "#fff",
+    height: "20px", 
+    minHeight: "20px",
+    maxHeight: "20px",
+    "& td, & th": {
+        padding: "8px", 
+        lineHeight: "20px", 
+    }
+}));
+
+
+export const RightAlignedContainer = styled("div")({
+    display: "flex",
+    justifyContent: "flex-end",
+    width: "100%",
+});
+
+export const StyledPagination = styled(Pagination)({
+    marginTop: "20px",
+    display: "flex",
+    justifyContent: "flex-end",
+    width: "100%",
+    "& .MuiPaginationItem-root": {
+        color: "#fff", 
+        backgroundColor: "#1f2130", 
+        border: "1px solid #3a3d4f", 
+        "&:hover": {
+            backgroundColor: "#2a2d40", 
+        },
+        "&.Mui-selected": {
+            backgroundColor: "#3a3d4f",
+            color: "#fff",
+            fontWeight: "bold",
+        },
+    },
+});
+
 

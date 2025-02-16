@@ -63,6 +63,7 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
             categoria: values.categoria,
             dependencia: values.dependencia,
             imagen: imagen || '',
+            dirigido: values.dirigido,
             aprendera: values.aprendera,
         }
 
@@ -86,6 +87,7 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                         categoria: cursos?.categoria || '',
                         dependencia: cursos?.dependencia || '',
                         imagen: '',
+                        dirigido: cursos?.dirigido || '',
                         aprendera: cursos?.aprendera || [],
                         nuevoItem: '',
                     }}
@@ -105,6 +107,10 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
 
                         if (valor.dependencia == '') {
                             errors.dependencia = 'Selecciona la dependencia del curso.';
+                        }
+
+                        if (valor.dirigido == '') {
+                            errors.dirigido = 'Agrega para quienes va dirigido el curso';
                         }
 
                         if (valor.aprendera.length == 0) {
@@ -204,6 +210,19 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                                 </div>
                                 <div className={style.Formulario_Content_Right}>
                                     <div className={style.Formulario_Input}>
+                                        <StyledTextField
+                                            name="dirigido"
+                                            label="¿Para quién es este curso?"
+                                            variant="outlined"
+                                            size="small"
+                                            color="secondary"
+                                            placeholder="Indica el público objetivo, por ejemplo: 'Todo público. No necesita tener conocimientos avanzados previos'"
+                                            value={values.dirigido}
+                                            onChange={(e) => setFieldValue('dirigido', e.target.value)}
+                                        />
+                                        <ErrorMessage name="dirigido" component={() => <p className={style.Error}>{errors.dirigido}</p>} />
+                                    </div>
+                                    <div className={style.Formulario_Input}>
                                         <div className={style.Formulario_Input_Content}>
                                             <div className={style.Formulario_Input_Content_div}>
                                                 <StyledSelect
@@ -268,7 +287,7 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                                 </div>
                             </div>
                             <div className={style.Formulario_Boton}>
-                                <button type="submit">{idCurso > 0 ? "Guardar cambios": "Guardar"}</button>
+                                <button type="submit">{idCurso > 0 ? "Guardar cambios" : "Guardar"}</button>
                             </div>
                         </Form>
                     )}

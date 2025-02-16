@@ -1,10 +1,9 @@
 import { Cursos } from '@/components/admin/cursos'
-import React from 'react'
 
-const cursos = () => {
+const cursosPage = () => {
     return (
         <Cursos/>
     )
 }
 
-export default cursos
+export default cursosPage

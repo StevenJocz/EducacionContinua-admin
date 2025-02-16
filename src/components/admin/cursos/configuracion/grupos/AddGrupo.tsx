@@ -1,15 +1,15 @@
 import { IoCloseCircle } from 'react-icons/io5';
 import style from './Grupos.module.css'
 import { ErrorMessage, Form, Formik, FormikValues } from 'formik';
-import { StyledDatePicker, StyledTextField } from '@/utils/MaterialUI';
+import { StyledDatePicker, StyledSelect, StyledTextField } from '@/utils/MaterialUI';
 import { useEffect, useState } from 'react';
-import { GrupoModel } from './Grupos.model';
+import { GrupoModel, ProfesorModel } from './Grupos.model';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { InputAdornment } from '@mui/material';
+import { InputAdornment, MenuItem } from '@mui/material';
 import { formatPrice } from '@/utils/FormatearPrecio';
-import { fetchIdGrupo } from './Grupos.service';
+import { fetchIdGrupo, fetchProfesores } from './Grupos.service';
 import dayjs from 'dayjs';
 
 interface Props {
@@ -20,11 +20,12 @@ interface Props {
 
 const AddGrupo: React.FC<Props> = ({ idCurso, idGrupo, onClose }) => {
     const [grupo, setGrupo] = useState<GrupoModel>();
+    const [profesores, setProfesores] = useState<ProfesorModel[]>([]);
 
     useEffect(() => {
+        handleProfesores();
         if (idGrupo === 0) return;
         handleGrupo(idGrupo);
-
     }, [idGrupo]);
 
     const handleGrupo = async (id: number) => {
@@ -32,10 +33,18 @@ const AddGrupo: React.FC<Props> = ({ idCurso, idGrupo, onClose }) => {
         setGrupo(grupoData);
     };
 
+    const handleProfesores = async () => {
+        const profesoresData = await fetchProfesores();
+        setProfesores(profesoresData);
+    };
+
     const handleRegistrar = (values: FormikValues) => {
         const informacionGrupo: GrupoModel = {
             id: idGrupo,
             nombre: values.nombre,
+            idProfesor: values.idProfesor,
+            profesor: '',
+            foto: '',
             fechaInicio: values.fechaInicio,
             fechaFin: values.fechaFin,
             precio: values.precio,
@@ -63,6 +72,7 @@ const AddGrupo: React.FC<Props> = ({ idCurso, idGrupo, onClose }) => {
                     enableReinitialize={true}
                     initialValues={{
                         nombre: grupo?.nombre || '',
+                        idProfesor: grupo?.idProfesor || '',
                         fechaInicio: grupo?.fechaInicio ? dayjs(grupo.fechaInicio) : null,
                         fechaFin: grupo?.fechaFin ? dayjs(grupo.fechaFin) : null,
                         precio: formatPrice(grupo?.precio || "0") || '',
@@ -134,7 +144,33 @@ const AddGrupo: React.FC<Props> = ({ idCurso, idGrupo, onClose }) => {
                                     component={() => <p className={style.Error}>{values.precio}</p>}
                                 />
                             </div>
-
+                            <div className={style.Formulario_Input}>
+                                <StyledSelect
+                                    id="outlined-select-currency"
+                                    select
+                                    label="Profesor"
+                                    size="small"
+                                    variant="outlined"
+                                    value={values.idProfesor}
+                                    onChange={(e) => setFieldValue('idProfesor', e.target.value)}
+                                >
+                                    <MenuItem value='0'>
+                                        Seleccione
+                                    </MenuItem>
+                                    {profesores.map((profesor) => (
+                                        <MenuItem key={profesor.id} value={profesor.id}>
+                                            <div className={style.Select_imagen}>
+                                                <img src={profesor.foto} alt="" />
+                                                {profesor.nombre}
+                                            </div>
+                                        </MenuItem>
+                                    ))}
+                                </StyledSelect>
+                                <ErrorMessage
+                                    name="idProfesor"
+                                    component={() => <p className={style.Error}>{values.idProfesor}</p>}
+                                />
+                            </div>
 
                             <div className={style.Formulario_Boton}>
                                 <button type="submit">{idGrupo ? 'Guardar Cambios' : 'Registrar Grupo'}</button>
