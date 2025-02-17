@@ -42,9 +42,9 @@
 }
 
 .AdminLayout_Content::-webkit-scrollbar-thumb {
-    background-color: var(--background-dark);
+    background-color: #ffffff;
 }
 
 .AdminLayout_Content::-webkit-scrollbar-track {
-    background-color: #ffffff;
+    background-color: var(--background-dark);
 }

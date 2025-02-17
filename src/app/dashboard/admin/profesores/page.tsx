@@ -1,8 +1,9 @@
+import { Profesores } from '@/components/admin/profesores'
 import React from 'react'
 
 const ProdesoresPage = () => {
   return (
-    <div>ProdesoresP</div>
+    <Profesores />
   )
 }
 

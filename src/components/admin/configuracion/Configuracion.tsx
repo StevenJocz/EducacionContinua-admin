@@ -101,7 +101,7 @@ const configuracion = () => {
                     <FAQS />
                 ) : (
                     <div className={style.Configuracion_Home}>
-                        <p> Ajusta los parámetros clave para asegurar un funcionamiento óptimo y adaptado a tus necesidades.</p>
+                        <p>Configurar los parámetros es la clave para garantizar un funcionamiento óptimo y ajustado a tus necesidades.</p>
                         <Image
                             src={img}
                             alt="Imagen de fondo"

@@ -6,7 +6,8 @@ import {
     IoDocumentTextOutline,
     IoBriefcaseOutline,
     IoExtensionPuzzleOutline,
-    IoCalendarOutline 
+    IoCalendarOutline, 
+    IoSchoolOutline
 } from 'react-icons/io5';
 
 export const RoutesAdmin: Record<string, Route> = {
@@ -33,7 +34,7 @@ export const RoutesAdmin: Record<string, Route> = {
     PROFESORES: {
         path: '/dashboard/admin/profesores',
         name: 'Profesores',
-        icon: IoPersonOutline
+        icon: IoSchoolOutline 
     },
     INSCRIPCIONES: {
         path: '/dashboard/admin/inscripciones',

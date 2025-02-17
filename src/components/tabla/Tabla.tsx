@@ -12,6 +12,8 @@ interface DataTableProps {
     verBotonEditar?: boolean;
 }
 
+const fotoPredeterminada = "https://i.pinimg.com/originals/b8/08/07/b8080715de29eabbbba78c1b2c9d70be.png";
+
 const Tabla: React.FC<DataTableProps> = ({ data, mostrarRegistro, verBotonEditar }) => {
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(0);
@@ -29,7 +31,9 @@ const Tabla: React.FC<DataTableProps> = ({ data, mostrarRegistro, verBotonEditar
 
     const startIndex = page * rowsPerPage;
     const endIndex = Math.min(startIndex + rowsPerPage, filteredData.length);
-    const visibleRows = filteredData.slice(startIndex, endIndex);
+    const sortedData = [...filteredData].reverse(); // Invierte el orden
+    const visibleRows = sortedData.slice(startIndex, endIndex);
+
 
     const totalPages = Math.ceil(filteredData.length / rowsPerPage);
 
@@ -48,16 +52,28 @@ const Tabla: React.FC<DataTableProps> = ({ data, mostrarRegistro, verBotonEditar
         }
     };
 
+    const renderActivo = (isActive: boolean) => {
+        return (
+            <div className={`Table_Estado ${isActive ? "Activo" : "NoActivo"}`}>
+                {isActive ? "Activo": "No activo"}
+            </div>
+        );
+    };
+
     return (
         <div className="Tabla">
             <StyledTextField
                 label="Buscar"
                 variant="outlined"
+                placeholder="Buscar por cualquier campo..."
                 size="small"
                 fullWidth
                 margin="dense"
                 onChange={(e) => setSearch(e.target.value)}
             />
+            <div className="Table_Total">
+                <h6 className="Table_Total_P">Total registros: {filteredData.length}</h6>
+            </div>
             <TableContainer component={Paper} sx={{ backgroundColor: "#1f2130" }}>
                 <Table>
                     <TableHead>
@@ -73,15 +89,23 @@ const Tabla: React.FC<DataTableProps> = ({ data, mostrarRegistro, verBotonEditar
                     <TableBody>
                         {visibleRows.map((row, index) => (
                             <StyledTableRow key={index}>
-                                {columns.map((column) => (
-                                    <StyledTableCell key={column}>{row[column]}</StyledTableCell>
-                                ))}
+                                {columns.map((column) => {
+                                    let cellContent = row[column];
+                                    if (column === 'foto') {
+                                        const imageUrl = row[column];
+                                        cellContent = <img className='Tabla_Imagen' src={imageUrl ? imageUrl : fotoPredeterminada} alt="Foto de perfil" />;
+                                    }
+                                    if (column === 'estado') {
+                                        cellContent = renderActivo(row[column]);
+                                    }
+                                    return <StyledTableCell key={column}>{cellContent}</StyledTableCell>;
+                                })}
 
                                 {verBotonEditar && (
                                     <StyledTableCell align="center" style={{ width: 150 }}>
                                         <Tooltip title="Editar o ver información" disableInteractive>
-                                            <span className="Boton_Editar" onClick={() => VerRegistro(row.id)}> 
-                                                <IoPencil  style={{ cursor: "pointer" }} />
+                                            <span className="Boton_Editar" onClick={() => VerRegistro(row.id)}>
+                                                <IoPencil style={{ cursor: "pointer" }} />
                                                 Editar
                                             </span>
                                         </Tooltip>
@@ -94,6 +118,7 @@ const Tabla: React.FC<DataTableProps> = ({ data, mostrarRegistro, verBotonEditar
             </TableContainer>
 
             <RightAlignedContainer>
+
                 <StyledPagination
                     color='primary'
                     count={totalPages}

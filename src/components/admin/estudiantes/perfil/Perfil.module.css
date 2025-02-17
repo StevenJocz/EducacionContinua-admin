@@ -1,0 +1,402 @@
+.Perfil {
+    width: 100%;
+}
+
+
+.Perfil_Header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.Perfil_Header button {
+    width: 150px;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--bg-undecimo);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.Perfil_Header p {
+    font-size: 1.2em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+}
+
+.Perfil_Body {
+    width: 100%;
+    display: grid;
+    min-height: 100%;
+    grid-template-columns: 250px minmax(400px, 1100px) 200px;
+    gap: 30px;
+
+}
+
+.Perfil_Body_Foto {
+    width: 100%;
+    display: flex;
+    max-height: 400px;
+}
+
+.Body_Foto {
+    width: 100%;
+    max-height: 350px;
+    background-color: var(--bg-undecimo);
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.Body_Foto img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.Body_Foto h2 {
+    font-size: 1.3em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-primario);
+}
+
+.Body_Foto h3 {
+    font-size: 1em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-octavo);
+}
+
+.Body_Foto button {
+    width: 100%;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--bg-sexto);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+}
+
+.Perfil_Body_Informacion {
+    width: 100%;
+    background-color: var(--bg-undecimo);
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+    padding: 20px;
+}
+
+.Perfil_Body_Informacion h2 {
+    font-size: 1.6em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-primario);
+}
+
+.Formulario {
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+
+.Formulario_Titulo {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.Formulario_Titulo h3 {
+    font-size: 1.3em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-bottom: 20px;
+}
+
+.Formulario_Dos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.Formulario_Dos div {
+    width: 100%;
+}
+
+
+.Formulario_Boton {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.Perfil_Body_Informacion .Error {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    color: var(--text-rojo);
+    font-weight: 300 !important;
+    font-style: italic;
+    text-align: right;
+    margin-top: -13px;
+    margin-bottom: 20px;
+}
+
+.Formulario_Boton button {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 4px 24px rgba(9, 50, 66, .25);
+    background-color: var(--btn-bg-boton);
+    color: var(--text-primario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+
+.Informacion_Cursos_Content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.CursosCard {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.7em;
+    -webkit-border-radius: 0.7em;
+    -moz-border-radius: 0.7em;
+    -ms-border-radius: 0.7em;
+    -o-border-radius: 0.7em;
+    background-color: var(--bg-blanco);
+    border: 1px solid var(--border-septimo);
+    cursor: pointer;
+}
+
+.CursosCard h2 {
+    font-size: 1.1em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-negro);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin: 5px 10px;
+}
+
+.CursosCard p {
+    font-size: 1em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--text-negro);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin: 5px 10px;
+}
+
+.CursosCard_Progreso {
+    width: 100%;
+    padding: 5px 10px 20px 10px;
+}
+
+.CursosCard_Progreso h5 {
+    font-size: 0.9em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-negro);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+
+}
+
+.Progreso {
+    width: 100%;
+    min-height: 7px;
+    background-color: var(--bg-undecimo);
+    margin-top: 10px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    overflow: hidden;
+}
+
+.Progreso_inner {
+    height: 7px;
+    background-size: 30px;
+    background-image: url(../../../../../public/img/svg.png);
+    background-color: var(--bg-secundario);
+    animation: 10s linear infinite bar-progress;
+    -webkit-animation: 10s linear infinite bar-progress;
+}
+
+@keyframes bar-progress {
+    from {
+        background-position: 0 0
+    }
+
+    to {
+        background-position: -60px -60px
+    }
+}
+
+.Body_Informacion_Certificados {
+    width: 100%;
+    
+}
+
+.Certificados_Content {
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+.Certificados_Card {
+    width: 90%;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #afafaf48;
+    padding-bottom: 20px;
+}
+
+.Certificados_Card h3{
+    font-size: 1.5em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-undecimo);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    margin-bottom: 10px;
+}
+
+.Certificados_Card  button{
+    width: 60%;
+    height: 2.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 4px 24px rgba(9, 50, 66, .25);
+    background-color: var(--btn-bg-boton);
+    color: var(--text-primario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+}
+
+
+.Perfil_Body_Menu {
+    width: 100%;
+    display: flex;
+}
+
+.Perfil_Body_Menu ul {
+    width: 100%;
+    list-style: none;
+}
+
+.Perfil_Body_Menu ul li {
+    font-size: 17px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-noveno);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 0 10px 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.Perfil_Body_Menu ul li:hover {
+    color: var(--text-terciario);
+}
+
+.Perfil_Body_Menu ul li.Seleccionado {
+    color: var(--text-terciario);
+}

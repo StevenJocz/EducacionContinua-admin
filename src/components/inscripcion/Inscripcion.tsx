@@ -277,7 +277,7 @@ const Inscripcion = () => {
                         {({ errors, values, setFieldValue, isSubmitting }) => (
                             <Form>
                                 <div className={style.TextoInformativo}>
-                                    <p><span> <IoAlertCircleOutline /></span>  Si vas a inscribir a un menor de edad o regalar este curso a otra persona, ten en cuenta que el primer formulario es para los datos del estudiante. Selecciona la opción "Usar una dirección de facturación distinta" para asegurarte de que la factura quede a tu nombre.</p>
+                                    <p><span> <IoAlertCircleOutline /></span>Si vas a inscribir a un menor de edad u otra persona, selecciona la opción "Usar una dirección de facturación distinta" para que la factura quede a tu nombre.</p>
                                 </div>
                                 <div className={style.Formulario}>
                                     <div className={style.Formulario_Titulo}>
