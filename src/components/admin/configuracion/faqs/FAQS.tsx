@@ -15,15 +15,21 @@ const FAQS = () => {
         handleData();
     }, []);
 
-    const handleData = () => {
-        const dataFetch = fetchData();
+    const handleData = async () => {
+        const dataFetch: FaqsModel[] = await fetchData();
         setData(dataFetch);
-    }
+    };
 
     const handleAdd = (id: number) => {
         setId(id);
         setAdd(!add);
     }
+
+    const handleOnClose = () => {
+        setAdd(false);
+        handleData();
+    }
+
     return (
         <div className={style.Faqs}>
             <h2>Preguntas frecuentes</h2>
@@ -41,7 +47,7 @@ const FAQS = () => {
                 mostrarRegistro={handleAdd}
             />
             {add &&
-                <AddFAQS id={id} onClose={() => setAdd(false)} />
+                <AddFAQS id={id} onClose={() => handleOnClose()} />
             }
         </div>
     )

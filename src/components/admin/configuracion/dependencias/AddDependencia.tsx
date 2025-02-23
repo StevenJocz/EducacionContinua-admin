@@ -1,10 +1,12 @@
 import { IoCloseCircle } from 'react-icons/io5';
-import style from './Dependencias.module.css'
+import style from './Dependencias.module.css';
 import { ErrorMessage, Form, Formik, FormikValues } from 'formik';
 import { StyledTextField } from '@/utils/MaterialUI';
 import { Dependencia } from './Dependencias.model';
 import { useEffect, useState } from 'react';
 import { fetchIdDependecia } from './Dependencias.service';
+import api from '@/service/Api.service';
+import ButtonSubmit from '@/components/button/ButtonSubmit';
 
 interface Props {
     id: number;
@@ -12,31 +14,45 @@ interface Props {
 }
 
 const AddDependencia: React.FC<Props> = ({ id, onClose }) => {
-    const [data, setData] = useState<Dependencia | null>(null)
+    const [isLoading, setIsLoading] = useState(false);
+    const [data, setData] = useState<Dependencia | null>(null);
 
     useEffect(() => {
-        if (id === 0) return;
-        handleData(id);
-    }, []);
+        if (id > 0) {
+            handleData(id);
+        }
+    }, [id]);
 
+    const handleData = async (id: number) => {
+        try {
+            const dataFetch = await fetchIdDependecia(id);
+            setData(dataFetch);
+        } catch (error) {
+            console.error('Error al obtener la dependencia:', error);
+        }
+    };
 
-    const handleData = (id: number) => {
-        const dataFetch = fetchIdDependecia(id);
-        setData(dataFetch);
-    }
+    const handleRegistrar = async (values: FormikValues) => {
+        setIsLoading(true);
 
-    const handleRegistrar = (values: FormikValues) => {
         const data: Dependencia = {
             id: id,
             nombre: values.nombre,
-        }
+        };
 
-        if (id > 0) {
-            console.log("Actualizar : ", data);
-        } else {
-            console.log("Guardar : ", data);
+        try {
+            if (id > 0) {
+                await api.put('Dependencias/Put_Update_Dependencias', data);
+            } else {
+                await api.post('Dependencias/Post_Create_Dependencias', data);
+            }
+        } catch (error) {
+            console.error('Error al registrar:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
+
     return (
         <div className={style.AddDependencia}>
             <div className={style.AddDependencia_Content}>
@@ -51,11 +67,17 @@ const AddDependencia: React.FC<Props> = ({ id, onClose }) => {
                     enableReinitialize={true}
                     initialValues={{
                         nombre: data?.nombre || '',
-
+                    }}
+                    validate={(values) => {
+                        let errors: any = {};
+                        if (!values.nombre) {
+                            errors.nombre = 'El campo nombre de la dependencia es obligatorio.';
+                        }
+                        return errors;
                     }}
                     onSubmit={handleRegistrar}
                 >
-                    {({ values, setFieldValue }) => (
+                    {({ values, errors, setFieldValue, isSubmitting }) => (
                         <Form>
                             <div className={style.Formulario_Input}>
                                 <StyledTextField
@@ -67,21 +89,22 @@ const AddDependencia: React.FC<Props> = ({ id, onClose }) => {
                                     value={values.nombre}
                                     onChange={(e) => setFieldValue('nombre', e.target.value)}
                                 />
-                                <ErrorMessage
-                                    name="nombre"
-                                    component={() => <p className={style.Error}>{values.nombre}</p>}
-                                />
+                                <ErrorMessage name="nombre" component={() => <p className={style.Error}>{errors.nombre}</p>} />
                             </div>
-                            <div className={style.Formulario_Boton}>
-                                <button type="submit">{id > 0 ? 'Guardar Cambios' : 'Registrar'}</button>
-                            </div>
+                            <ButtonSubmit
+                                id={id}
+                                isLoading={isLoading}
+                                isSubmitting={isSubmitting}
+                                onClose={onClose}
+                            />
                         </Form>
                     )}
                 </Formik>
+
             </div>
 
         </div>
-    )
-}
+    );
+};
 
-export default AddDependencia
+export default AddDependencia;

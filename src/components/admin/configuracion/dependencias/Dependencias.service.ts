@@ -1,16 +1,12 @@
+import api from "@/service/Api.service";
 import { Dependencia } from "./Dependencias.model";
 
-export const fetchIdDependecia = (id: number) => {
-    const dependecia: Dependencia = { id: 2, nombre: "Facultad de Ingeniería" }
-
-    return dependecia;
+export const fetchIdDependecia = async (id: number) => {
+    const response = await api.get<Dependencia>('Dependencias/GetDependenciasById', {id : id});
+    return response.data;
 };
 
-export const fetchDependecias = () => {
-    const Data:Dependencia[] = [
-        { id: 1, nombre: "Facultad de Humanidades" },
-        { id: 2, nombre: "Facultad de Ingeniería" },
-    ];
-
-    return Data;
+export const fetchDependecias = async () => {
+    const response = await api.get<Dependencia[]>('Dependencias/GetAllDependencias');
+    return response.data; 
 };

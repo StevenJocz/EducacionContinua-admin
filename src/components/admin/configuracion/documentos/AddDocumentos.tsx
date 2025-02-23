@@ -5,6 +5,8 @@ import { ErrorMessage, Form, Formik, FormikValues } from 'formik';
 import { StyledTextField } from '@/utils/MaterialUI';
 import { DocumentoModel } from './Documentos.model';
 import { fetchId } from './Documentos.service';
+import api from '@/service/Api.service';
+import ButtonSubmit from '@/components/button/ButtonSubmit';
 
 interface Props {
     id: number;
@@ -12,30 +14,43 @@ interface Props {
 }
 
 const AddDocumentos: React.FC<Props> = ({ id, onClose }) => {
-    const [data, setData] = useState<DocumentoModel | null>(null)
+    const [isLoading, setIsLoading] = useState(false);
+    const [data, setData] = useState<DocumentoModel | null>(null);
 
     useEffect(() => {
-        if (id === 0) return;
-        handleData(id);
-    }, []);
+        if (id > 0) {
+            handleData(id);
+        }
+    }, [id]);
 
+    const handleData = async (id: number) => {
+        try {
+            const dataFetch = await fetchId(id);
+            setData(dataFetch);
+        } catch (error) {
+            console.error('Error al obtener la dependencia:', error);
+        }
+    };
 
-    const handleData = (id: number) => {
-        const dataFetch = fetchId(id);
-        setData(dataFetch);
-    }
+    const handleRegistrar = async (values: FormikValues) => {
+        setIsLoading(true);
 
-    const handleRegistrar = (values: FormikValues) => {
         const data: DocumentoModel = {
             id: id,
             nombre: values.nombre,
             prefijo: values.prefijo
-        }
+        };
 
-        if (id > 0) {
-            console.log("Actualizar : ", data);
-        } else {
-            console.log("Guardar : ", data);
+        try {
+            if (id > 0) {
+                await api.put('TipoDocumentos/Put_Update_TipoDocumento', data);
+            } else {
+                await api.post('TipoDocumentos/Post_Create_TipoDocumento', data);
+            }
+        } catch (error) {
+            console.error('Error al registrar:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
     return (
@@ -55,9 +70,19 @@ const AddDocumentos: React.FC<Props> = ({ id, onClose }) => {
                         prefijo: data?.prefijo || '',
 
                     }}
+                    validate={(values) => {
+                        let errors: any = {};
+                        if (!values.nombre) {
+                            errors.nombre = 'El campo nombre del documento es obligatorio.';
+                        }
+                        if (!values.prefijo) {
+                            errors.prefijo = 'El campo prefijo del documento es obligatorio.';
+                        }
+                        return errors;
+                    }}
                     onSubmit={handleRegistrar}
                 >
-                    {({ values, setFieldValue }) => (
+                    {({ values, errors, setFieldValue, isSubmitting }) => (
                         <Form>
                             <div className={style.Formulario_Input}>
                                 <StyledTextField
@@ -69,10 +94,7 @@ const AddDocumentos: React.FC<Props> = ({ id, onClose }) => {
                                     value={values.prefijo}
                                     onChange={(e) => setFieldValue('prefijo', e.target.value)}
                                 />
-                                <ErrorMessage
-                                    name="prefijo"
-                                    component={() => <p className={style.Error}>{values.prefijo}</p>}
-                                />
+                                <ErrorMessage name="prefijo" component={() => <p className={style.Error}>{errors.prefijo}</p>} />
                             </div>
                             <div className={style.Formulario_Input}>
                                 <StyledTextField
@@ -84,14 +106,14 @@ const AddDocumentos: React.FC<Props> = ({ id, onClose }) => {
                                     value={values.nombre}
                                     onChange={(e) => setFieldValue('nombre', e.target.value)}
                                 />
-                                <ErrorMessage
-                                    name="nombre"
-                                    component={() => <p className={style.Error}>{values.nombre}</p>}
-                                />
+                                <ErrorMessage name="nombre" component={() => <p className={style.Error}>{errors.nombre}</p>} />
                             </div>
-                            <div className={style.Formulario_Boton}>
-                                <button type="submit">{id > 0 ? 'Guardar Cambios' : 'Registrar'}</button>
-                            </div>
+                            <ButtonSubmit
+                                id={id}
+                                isLoading={isLoading}
+                                isSubmitting={isSubmitting}
+                                onClose={onClose}
+                            />
                         </Form>
                     )}
                 </Formik>

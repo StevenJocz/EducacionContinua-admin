@@ -1,11 +1,20 @@
+"use client"; 
 import { StyledSelect, StyledTextArea, StyledTextField } from '@/utils/MaterialUI';
 import style from '../Configuracion.module.css';
 import { ErrorMessage, Form, Formik, FormikValues } from 'formik';
 import { MenuItem } from '@mui/material';
 import { IoAddCircle, IoCheckmarkCircle, IoCloseCircle, IoImageOutline } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
-import { InformacionCurso } from './Informacion.modl';
+import { categoriaCurso, InformacionCurso } from './Informacion.modl';
 import { fetchCurso } from './Informacion.service';
+import { Dependencia } from '@/components/admin/configuracion/dependencias/Dependencias.model';
+import { CategoriaModel } from '@/components/admin/configuracion/categorias/Categoria.model';
+import { fetchCategorias } from '@/components/admin/configuracion/categorias/Categoria.service';
+import { fetchDependecias } from '@/components/admin/configuracion/dependencias/Dependencias.service';
+import api from '@/service/Api.service';
+import ButtonSubmit from '@/components/button/ButtonSubmit';
+import {useRouter} from 'next/navigation';
+import { Imagen } from '../../Cursos.model';
 
 
 interface Props {
@@ -13,14 +22,29 @@ interface Props {
 }
 
 const Informacion: React.FC<Props> = ({ idCurso }) => {
+    const [isLoading, setIsLoading] = useState(false);
     const [imagen, setImagen] = useState<string>();
     const [cursos, setCursos] = useState<InformacionCurso>();
+    const [dependencia, setDependencia] = useState<Dependencia[] | null>(null);
+    const [categoria, setCategoria] = useState<CategoriaModel[] | null>(null);
 
     useEffect(() => {
+        handleCategoria();
+        handleDependencia();
         if (idCurso === 0) return;
         handleCurso(idCurso);
 
     }, [idCurso]);
+
+    const handleCategoria = async () => {
+        const dataFetch: CategoriaModel[] = await fetchCategorias();
+        setCategoria(dataFetch);
+    };
+
+    const handleDependencia = async () => {
+        const dataFetch: Dependencia[] = await fetchDependecias();
+        setDependencia(dataFetch);
+    };
 
     const handleCurso = async (id: number) => {
         const cursoData = await fetchCurso(id);
@@ -54,26 +78,36 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
         reader.readAsDataURL(file);
     };
 
-    const handleRegistrar = (values: FormikValues) => {
-
+    const handleRegistrar = async (values: FormikValues) => {
+        setIsLoading(true);
         const informacionCurso: InformacionCurso = {
             id: idCurso,
             titulo: values.titulo,
             descripcion: values.descripcion,
-            categoria: values.categoria,
+            categorias: values.categoriaSeleccionada,
             dependencia: values.dependencia,
             imagen: imagen || '',
             dirigido: values.dirigido,
             aprendera: values.aprendera,
         }
 
-        if (idCurso > 0) {
-            console.log("Actualizar : ", informacionCurso);
-        } else {
-            console.log("Guardar : ", informacionCurso);
+        try {
+            if (idCurso > 0) {
+                console.log("Actualizar : ", informacionCurso);
+            } else {
+                await api.post('Cursos/Post_Create_Cursos', informacionCurso);
+            }
+        } catch (error) {
+            console.error('Error al registrar:', error);
+        } finally {
+            setIsLoading(false);
         }
-
     };
+
+   const router = useRouter();
+    const onClose =()=>{
+        router.replace('/dashboard/admin/cursos');
+    }
 
     return (
         <div className={style.Informacion}>
@@ -84,12 +118,13 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                     initialValues={{
                         titulo: cursos?.titulo || '',
                         descripcion: cursos?.descripcion || '',
-                        categoria: cursos?.categoria || '',
+                        categoria: 0,
                         dependencia: cursos?.dependencia || '',
                         imagen: '',
                         dirigido: cursos?.dirigido || '',
                         aprendera: cursos?.aprendera || [],
                         nuevoItem: '',
+                        categoriaSeleccionada: cursos?.categorias || [] as categoriaCurso[],
                     }}
                     validate={(valor) => {
                         let errors: any = {};
@@ -101,11 +136,7 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                             errors.descripcion = 'La descripción es obligatoria. Explica brevemente de qué trata el curso.';
                         }
 
-                        if (valor.categoria == '') {
-                            errors.categoria = 'Selecciona una categoría para el curso.';
-                        }
-
-                        if (valor.dependencia == '') {
+                        if (valor.dependencia == '0') {
                             errors.dependencia = 'Selecciona la dependencia del curso.';
                         }
 
@@ -117,7 +148,6 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                             errors.aprendera = 'Agrega al menos un aprendizaje que los estudiantes obtendrán en este curso.';
                         }
 
-
                         if (!imagen) {
                             errors.imagen = 'Sube una imagen representativa del curso.';
                         }
@@ -125,7 +155,7 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                     }}
                     onSubmit={handleRegistrar}
                 >
-                    {({ errors, values, setFieldValue }) => (
+                    {({ errors, values, setFieldValue, isSubmitting }) => (
                         <Form>
                             <div className={style.Formulario_Content}>
                                 <div className={style.Formulario_Content_Left}>
@@ -223,40 +253,78 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                                         <ErrorMessage name="dirigido" component={() => <p className={style.Error}>{errors.dirigido}</p>} />
                                     </div>
                                     <div className={style.Formulario_Input}>
-                                        <div className={style.Formulario_Input_Content}>
-                                            <div className={style.Formulario_Input_Content_div}>
-                                                <StyledSelect
-                                                    id="dependencia"
-                                                    select
-                                                    label="Dependencia"
-                                                    size="small"
-                                                    variant="outlined"
-                                                    value={values.dependencia}
-                                                    onChange={(e) => setFieldValue('dependencia', e.target.value)}
-                                                >
-                                                    <MenuItem value="1">Facultad de Humanidades</MenuItem>
-                                                    <MenuItem value="2">Facultad de Ingeniería</MenuItem>
-                                                </StyledSelect>
-                                                <ErrorMessage name="dependencia" component={() => <p className={style.Error}>{errors.dependencia}</p>} />
-                                            </div>
-                                            <div className={style.Formulario_Input_Content_div}>
-                                                <StyledSelect
-                                                    id="categoria"
-                                                    select
-                                                    label="Categoría"
-                                                    size="small"
-                                                    variant="outlined"
-                                                    value={values.categoria}
-                                                    onChange={(e) => setFieldValue('categoria', e.target.value)}
-                                                >
-                                                    <MenuItem value="1">Idiomas</MenuItem>
-                                                    <MenuItem value="2">Enfermería</MenuItem>
-                                                    <MenuItem value="3">Ingeniería</MenuItem>
-                                                </StyledSelect>
-                                                <ErrorMessage name="categoria" component={() => <p className={style.Error}>{errors.categoria}</p>} />
-                                            </div>
-                                        </div>
+                                        <StyledSelect
+                                            id="dependencia"
+                                            select
+                                            label="Dependencia"
+                                            size="small"
+                                            variant="outlined"
+                                            value={values.dependencia}
+                                            onChange={(e) => setFieldValue('dependencia', e.target.value)}
+                                        >
+                                            <MenuItem value={'0'}>
+                                                Seleccione
+                                            </MenuItem>
+
+                                            {dependencia && dependencia.map((option) => (
+                                                <MenuItem key={option.id} value={option.id}>
+                                                    {option.nombre}
+                                                </MenuItem>
+                                            ))}
+                                        </StyledSelect>
+                                        <ErrorMessage name="dependencia" component={() => <p className={style.Error}>{errors.dependencia}</p>} />
                                     </div>
+                                    <div className={style.Formulario_Input_Content}>
+                                        <StyledSelect
+                                            id="categoria"
+                                            select
+                                            label="Categoría"
+                                            size="small"
+                                            variant="outlined"
+                                            value={values.categoria}
+                                            onChange={(e) => {
+                                                const categoriaId = Number(e.target.value);
+                                                const categoriaSeleccionada = categoria?.find(c => c.id === categoriaId);
+
+                                                if (categoriaSeleccionada && !values.categoriaSeleccionada.some(c => c.id === categoriaId)) {
+                                                    setFieldValue('categoriaSeleccionada', [...values.categoriaSeleccionada, categoriaSeleccionada]);
+                                                }
+                                                setFieldValue('categoria', '0'); 
+                                            }}
+                                        >
+                                            <MenuItem value={'0'}>
+                                                Seleccione
+                                            </MenuItem>
+                                            {categoria?.map((option) => (
+                                                <MenuItem key={option.id} value={option.id}>
+                                                    {option.nombre}
+                                                </MenuItem>
+                                            ))}
+                                        </StyledSelect>
+                                    </div>
+                                    <div className={style.Formulario_Lista_Categorias}>
+                                        {values.categoriaSeleccionada.length > 0 && (
+                                            <ul>
+                                                {values.categoriaSeleccionada?.map((cat, index) => (
+                                                    <li key={index} >
+                                                        <div>
+                                                            <IoCheckmarkCircle className={style.IconoCheck} />
+                                                            {cat.nombre}
+                                                        </div>
+                                                        <div>
+                                                            <IoCloseCircle
+                                                                className={style.IconoBorrar}
+                                                                onClick={() => setFieldValue('categoriaSeleccionada', values.categoriaSeleccionada.filter(c => c.id !== cat.id))}
+
+                                                            />
+                                                        </div>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
+                                    <ErrorMessage name="categoria" component={() => <p className={style.Error}>{errors.categoria}</p>} />
+
                                     <div className={style.Formulario_Content_Imagen}>
                                         <h3>Imagen del curso</h3>
                                         <div
@@ -279,16 +347,19 @@ const Informacion: React.FC<Props> = ({ idCurso }) => {
                                         </div>
                                         <p>La imagen debe estar en formato JPG o PNG y tener como máximo 5 MB. Dimensiones recomendadas: 600x400 píxeles.</p>
                                         {imagen &&
-                                            <img src={imagen} alt="Vista previa" className={style.Imagen_Preview} />
+                                            <img src={`${Imagen.URL}${imagen}`} alt="Vista previa" className={style.Imagen_Preview} />
                                         }
                                         <ErrorMessage name="imagen" component={() => <p className={style.ErrorImagen}>{errors.imagen}</p>} />
                                     </div>
 
                                 </div>
                             </div>
-                            <div className={style.Formulario_Boton}>
-                                <button type="submit">{idCurso > 0 ? "Guardar cambios" : "Guardar"}</button>
-                            </div>
+                            <ButtonSubmit
+                                id={idCurso}
+                                isLoading={isLoading}
+                                isSubmitting={isSubmitting}
+                                onClose={onClose}
+                            />
                         </Form>
                     )}
                 </Formik>

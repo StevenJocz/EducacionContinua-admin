@@ -15,7 +15,7 @@ interface Props {
 }
 
 const Perfil: React.FC<Props> = ({ id, onClose }) => {
-    const [menu, setMenu] = useState(1);
+    const [menu, setMenu] = useState(3);
     const [data, setData] = useState<InformacionEstudiante | null>(null)
 
     useEffect(() => {

@@ -1,0 +1,191 @@
+.AddConvenio {
+    width: 100%;
+}
+
+
+.AddConvenio_Header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.AddConvenio_Header button {
+    width: 150px;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var(--bg-undecimo);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.AddConvenio_Header p {
+    font-size: 1.2em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+}
+
+
+.AddConvenio_Body {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.AddConvenio_Body_Informacion {
+    width: 100%;
+    background-color: var(--bg-undecimo);
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+    padding: 20px;
+}
+
+
+.Formulario {
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+
+.Formulario_Titulo {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.Formulario_Titulo h3 {
+    font-size: 1.3em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-bottom: 35px;
+}
+
+.Formulario_Dos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.Formulario_Dos div {
+    width: 100%;
+}
+
+.Formulario_Input_Div {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.Formulario_Boton {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.AddConvenio_Body  .Error {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    color: var(--text-error);
+    font-weight: 200 !important;
+    font-style: italic;
+    text-align: right;
+    margin-top: -13px;
+    margin-bottom: 20px;
+}
+
+.AddConvenio_Body .Error_Fecha {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    color: var(--text-error);
+    font-weight: 200 !important;
+    font-style: italic;
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.Formulario_Boton button {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 4px 24px rgba(9, 50, 66, .25);
+    background-color: var(--btn-bg-boton);
+    color: var(--text-primario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.AddConvenio_Registros {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.AddConvenio_Registros p {
+    font-size: 1.2em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--text-undecimo);
+    margin-top: 30px;
+}
+
+.AddConvenio_Registros_Botones {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 20px;
+}
+
+.Registros_Botones_Label {
+    width: 25%;
+    height: 2.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 4px 24px rgba(9, 50, 66, .25);
+    background-color: var( --bg-amarillo);
+    color: var(--text-primario);
+    will-change: transform;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+}

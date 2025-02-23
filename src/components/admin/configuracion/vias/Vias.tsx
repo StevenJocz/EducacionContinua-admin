@@ -16,14 +16,19 @@ const Vias = () => {
         handleData();
     }, []);
 
-    const handleData= () => {
-        const dataFetch = fetchData();
+    const handleData = async () => {
+        const dataFetch: ViasModel[] = await fetchData();
         setData(dataFetch);
-    }
+    };
 
-    const handleAdd= (id: number) => {
+    const handleAdd = (id: number) => {
         setId(id);
         setAdd(!add);
+    }
+
+    const handleOnClose = () => {
+        setAdd(false);
+        handleData();
     }
 
     return (
@@ -43,7 +48,7 @@ const Vias = () => {
                 mostrarRegistro={handleAdd}
             />
             {add &&
-                <AddVias id={id} onClose={() => setAdd(false)} />
+                <AddVias id={id} onClose={() => handleOnClose()} />
             }
         </div>
     )

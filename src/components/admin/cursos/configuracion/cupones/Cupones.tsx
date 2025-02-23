@@ -4,6 +4,7 @@ import { CuponesModel } from './Cupones.model';
 import { IoAdd, IoPencil } from 'react-icons/io5';
 import AddCupones from './AddCupones';
 import { fetchCupones } from './Cupones.service';
+import { formatPrice } from '@/utils/FormatearPrecio';
 
 interface Props {
     idCurso: number;
@@ -74,7 +75,7 @@ const Cupones: React.FC<Props> = ({ idCurso }) => {
                                 <td><span>{cupon.fechaInicio.toLocaleDateString()}</span></td>
                                 <td><span>{cupon.fechaFin.toLocaleDateString()}</span></td>
                                 <td><span>{cupon.codigo}</span></td>
-                                <td><span>{cupon.descuento}</span></td>
+                                <td><span>${formatPrice(cupon.descuento)}</span></td>
                                 <td>
                                     <span className={cupon.estado ? style.Estado_Activo : style.Estado_NoActivo}>
                                         {cupon.estado ? 'Activo' : 'No Activo'}

@@ -15,14 +15,19 @@ const Dependencias = () => {
         handleData();
     }, []);
 
-    const handleData= () => {
-        const dataFetch = fetchDependecias();
+    const handleData = async () => {
+        const dataFetch:Dependencia[] = await fetchDependecias();
         setData(dataFetch);
-    }
+    };
 
     const handleAdd= (id: number) => {
         setId(id);
         setAdd(!add);
+    }
+
+    const handleOnClose= () => {;
+        setAdd(false);
+        handleData();
     }
 
     return (
@@ -42,7 +47,7 @@ const Dependencias = () => {
                 mostrarRegistro={handleAdd}
             />
             {add &&
-                <AddDependencia id={id} onClose={() => setAdd(false)} />
+                <AddDependencia id={id} onClose={() => handleOnClose()} />
             }
         </div>
     )

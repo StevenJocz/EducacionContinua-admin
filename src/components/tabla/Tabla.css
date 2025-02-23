@@ -3,8 +3,12 @@
     margin-top: 30px;
 }
 
+.Table_Acciones {
+    width: 150px;
+}
+
 .Boton_Editar {
-    width: 80px;
+    width: 50px;
     font-size: 15px;
     font-family: "Barlow Condensed", sans-serif;
     font-weight: 400;
@@ -16,14 +20,29 @@
     -moz-border-radius: .7rem;
     -ms-border-radius: .7rem;
     -o-border-radius: .7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    margin: 0 15%;
     cursor: pointer;
     border: none;
     outline: none;
+    margin-top: 8px;
+}
+
+.Boton_Grupos {
+    width: 50px;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    background-color: var( --bg-amarillo);
+    color: var(--text-primario);
+    padding: 5px;
+    border-radius: .7rem;
+    -webkit-border-radius: .7rem;
+    -moz-border-radius: .7rem;
+    -ms-border-radius: .7rem;
+    -o-border-radius: .7rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin-top: 8px;
 }
 
 .Tabla_Imagen {

@@ -15,11 +15,11 @@ const Nav: React.FC<NavProps> = ({ theme }) => {
         <h3>Educación Continua</h3>
       </Link>
       <ul className={style.Nav_Link}>
-        <Navigator pathNames={[Routes.DASHBOARD, Routes.PRODUCTOS, Routes.MAOS, Routes.BLOG, Routes.CONTACTENOS]} />
-        <li>En</li>
+        <Navigator pathNames={[Routes.DASHBOARD, Routes.PRODUCTOS, Routes.BLOG, Routes.CONTACTENOS]} />
+
       </ul>
       <div className={style.Nav_Perfil}>
-        <NavPerfil  theme={theme}/>
+        <NavPerfil theme={theme} />
 
       </div>
     </nav>

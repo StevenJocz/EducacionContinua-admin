@@ -43,12 +43,12 @@ const Anuncios: React.FC<Props> = ({ cursoId, grupoId }) => {
         <>
             <div className={style.Anuncios} onClick={handleAnuncios}>
                 <IoFlashOutline className={style.Anuncios_Icono} />
-                <p>Ver anuncios</p>
+                <p>Notificaciones</p>
                 {notificacion &&
                     <div className={style.Anuncios_Notificacion}><span>📌</span></div>
                 }
             </div>
-            <p className={style.Anuncios_P}>Hay {anunciosData.length} anuncios</p>
+            <p className={style.Anuncios_P}>Hay {anunciosData.length} notificaciones</p>
             {anuncios && anunciosData.length > 0 && (
                 <div className={style.Anuncios_Modal} ref={modalRef}>
                     {anunciosData.map((anuncio) => (

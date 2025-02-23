@@ -133,3 +133,14 @@
     border: none;
     outline: none;
 }
+
+.AddDependencia_Content .Error {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    color: var(--text-error);
+    font-weight: 200 !important;
+    font-style: italic;
+    text-align: right;
+    margin-top: -13px;
+    margin-bottom: 20px;
+}

@@ -15,14 +15,19 @@ const Categoria = () => {
         handleData();
     }, []);
 
-    const handleData = () => {
-        const dataFetch = fetchCategorias();
+    const handleData = async () => {
+        const dataFetch:CategoriaModel[] = await fetchCategorias();
         setData(dataFetch);
-    }
+    };
 
     const handleAdd = (id: number) => {
         setId(id);
         setAdd(!add);
+    }
+
+    const handleOnClose= () => {;
+        setAdd(false);
+        handleData();
     }
     return (
         <div className={style.Categoria}>
@@ -41,7 +46,7 @@ const Categoria = () => {
                 mostrarRegistro={handleAdd}
             />
             {add &&
-                <AddCategoria id={id} onClose={() => setAdd(false)} />
+                <AddCategoria id={id} onClose={() => handleOnClose()} />
             }
         </div>
     )

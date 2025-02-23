@@ -6,40 +6,56 @@ import { Formik, Form, ErrorMessage } from 'formik';
 import style from './FAQS.module.css'
 import { IoCloseCircle } from 'react-icons/io5';
 import { StyledTextField } from '@/utils/MaterialUI';
+import api from '@/service/Api.service';
+import ButtonSubmit from '@/components/button/ButtonSubmit';
 
 interface Props {
     id: number;
     onClose: () => void;
 }
 const AddFAQS: React.FC<Props> = ({ id, onClose }) => {
-    const [data, setData] = useState<FaqsModel | null>(null)
+    const [isLoading, setIsLoading] = useState(false);
+    const [data, setData] = useState<FaqsModel | null>(null);
 
     useEffect(() => {
-        if (id === 0) return;
-        handleData(id);
-    }, []);
+        if (id > 0) {
+            handleData(id);
+        }
+    }, [id]);
 
+    const handleData = async (id: number) => {
+        try {
+            const dataFetch = await fetchId(id);
+            setData(dataFetch);
+        } catch (error) {
+            console.error('Error al obtener la dependencia:', error);
+        }
+    };
 
-    const handleData = (id: number) => {
-        const dataFetch = fetchId(id);
-        setData(dataFetch);
-    }
+    const handleRegistrar = async (values: FormikValues) => {
+        setIsLoading(true);
 
-    const handleRegistrar = (values: FormikValues) => {
         const data: FaqsModel = {
             id: id,
             pregunta: values.pregunta,
-            respuesta: values.respuesta
-        }
+            respuesta: values.respuesta,
+        };
 
-        if (id > 0) {
-            console.log("Actualizar : ", data);
-        } else {
-            console.log("Guardar : ", data);
+        try {
+            if (id > 0) {
+                await api.put('Faqs/Put_Update_Faq', data);
+            } else {
+                await api.post('Faqs/Post_Create_Faq', data);
+            }
+        } catch (error) {
+            console.error('Error al registrar:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
-  return (
-    <div className={style.Add}>
+
+    return (
+        <div className={style.Add}>
             <div className={style.Add_Content}>
                 <div className={style.Add_Content_Encabezado}>
                     <h2>Categoría</h2>
@@ -55,9 +71,19 @@ const AddFAQS: React.FC<Props> = ({ id, onClose }) => {
                         respuesta: data?.respuesta || '',
 
                     }}
+                    validate={(values) => {
+                        let errors: any = {};
+                        if (!values.pregunta) {
+                            errors.pregunta = 'El campo pregunta es obligatorio.';
+                        }
+                        if (!values.respuesta) {
+                            errors.respuesta = 'El campo respuesta es obligatorio.';
+                        }
+                        return errors;
+                    }}
                     onSubmit={handleRegistrar}
                 >
-                    {({ values, setFieldValue }) => (
+                    {({ values, errors, setFieldValue, isSubmitting }) => (
                         <Form>
                             <div className={style.Formulario_Input}>
                                 <StyledTextField
@@ -69,10 +95,7 @@ const AddFAQS: React.FC<Props> = ({ id, onClose }) => {
                                     value={values.pregunta}
                                     onChange={(e) => setFieldValue('pregunta', e.target.value)}
                                 />
-                                <ErrorMessage
-                                    name="pregunta"
-                                    component={() => <p className={style.Error}>{values.pregunta}</p>}
-                                />
+                                <ErrorMessage name="pregunta" component={() => <p className={style.Error}>{errors.pregunta}</p>} />
                             </div>
                             <div className={style.Formulario_Input}>
                                 <StyledTextField
@@ -84,21 +107,21 @@ const AddFAQS: React.FC<Props> = ({ id, onClose }) => {
                                     value={values.respuesta}
                                     onChange={(e) => setFieldValue('respuesta', e.target.value)}
                                 />
-                                <ErrorMessage
-                                    name="respuesta"
-                                    component={() => <p className={style.Error}>{values.respuesta}</p>}
-                                />
+                                <ErrorMessage name="respuesta" component={() => <p className={style.Error}>{errors.respuesta}</p>} />
                             </div>
-                            <div className={style.Formulario_Boton}>
-                                <button type="submit">{id > 0 ? 'Guardar Cambios' : 'Registrar'}</button>
-                            </div>
+                            <ButtonSubmit
+                                id={id}
+                                isLoading={isLoading}
+                                isSubmitting={isSubmitting}
+                                onClose={onClose}
+                            />
                         </Form>
                     )}
                 </Formik>
             </div>
 
         </div>
-  )
+    )
 }
 
 export default AddFAQS

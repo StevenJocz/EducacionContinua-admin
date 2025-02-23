@@ -30,7 +30,8 @@
     "react-input-mask": "^2.0.4",
     "react-player": "^2.16.0",
     "react-plyr": "^2.2.0",
-    "recharts": "^2.15.0"
+    "recharts": "^2.15.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",

@@ -21,7 +21,7 @@
     --bg-octavo: #D5E6E1; /* Más claro que terciario */
     --bg-noveno: #F0F6F3; /* Casi blanco, más claro que cuaternario */
     --bg-decimo: #FAFBFA; /* Blanco puro o un ligero gris suave */
-    --background-dark: #071513;
+    --background-dark: #070c15; /* #0d2f4e */
     --background-dark-body:#1f2130;
     --bg-undecimo: #6c758d99;
     --bg-undecimo-hover: #6c758d4e;
@@ -51,6 +51,7 @@
     --text-rojo: #c90000;
     --text-verde:  #05b22a;
     --text-unac: #2a5883;
+    --text-error: #f35959;
 
 
     /* border */

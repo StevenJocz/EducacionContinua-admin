@@ -253,6 +253,7 @@
     margin-top: -20px;
 }
 
+
 .Formulario_Input_Content li {
     width: 100%;
     margin-bottom: 5px;
@@ -297,11 +298,13 @@
     font-size: 15px;
     color: var(--text-rojo);
     margin-top: -15px;
+    text-align: right;
 }
 
 .Formulario_Content .ErrorImagen {
     font-size: 15px;
     color: var(--text-rojo);
+    text-align: right;
 }
 
 .Formulario_Boton {
@@ -331,6 +334,38 @@
     cursor: pointer;
     border: none;
     outline: none;
+}
+
+
+.Formulario_Lista_Categorias {
+    width: 100%;
+}
+
+.Formulario_Lista_Categorias ul {
+    width: 100%;
+}
+
+.Formulario_Lista_Categorias ul li {
+    width: 100% !important;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-cuaternario);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid var(--bg-undecimo);
+    padding: 10px 0;
+}
+
+.Formulario_Lista_Categorias ul li div {
+   display: flex;
+   align-items: center;
+   gap: 10px;
 }
 
 .Modal {

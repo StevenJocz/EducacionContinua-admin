@@ -13,7 +13,7 @@ function Inicio() {
     return (
         <div className={style.Inicio}>
             <Link href={Routes.HOME.path}>
-                <h1><span>MAO'S Word</span></h1>
+                <h1><span>SLIES</span></h1>
             </Link>
             <div className={style.Inicio_Content}>
                 <div className={style.Inicio_Content_Body}>
@@ -34,26 +34,9 @@ function Inicio() {
                 </div>
             </div>
             <footer className={style.Footer}>
-                <p>© 2024 desarrollado por Hamilton Espinal para MAO'S WORD. Todos los derechos reservados.</p>
+                <p>© 2024 desarrollado por Hamilton Espinal para UNAC. Todos los derechos reservados.</p>
             </footer>
-            <Image
-                src={maoDos}
-                className={style.ImagenUno}
-                alt="Imagen de fondo mao uno"
-                width={500}
-                height={500}
-                placeholder="blur"
-                blurDataURL={blurImagen}
-            />
-            <Image
-                src={maoUno}
-                className={style.ImageDos}
-                alt="Imagen de fondo mao dos"
-                width={500}
-                height={500}
-                placeholder="blur"
-                blurDataURL={blurImagen}
-            />
+            
             <Image
                 src={svg}
                 className={style.svg}

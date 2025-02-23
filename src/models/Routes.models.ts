@@ -35,7 +35,7 @@ export  const Routes = {
     },
     PRODUCTOS: {
         path: `${RUTA_PUBLICA}/paginas/productos`,
-        name: 'Productos',
+        name: 'Cursos',
     },
     MAOS: {
         path: `${RUTA_PUBLICA}/paginas/maos`,

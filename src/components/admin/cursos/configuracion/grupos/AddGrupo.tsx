@@ -78,6 +78,42 @@ const AddGrupo: React.FC<Props> = ({ idCurso, idGrupo, onClose }) => {
                         precio: formatPrice(grupo?.precio || "0") || '',
                         estado: grupo?.estado || '',
                     }}
+                    validate={(values) => {
+                        let errors: any = {};
+                        const nameRegex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
+                        const priceRegex = /^[0-9]+(\.[0-9]{1,2})?$/; // Permite números con hasta 2 decimales.
+
+                        if (!values.nombre) {
+                            errors.nombre = 'El campo nombre es obligatorio.';
+                        } else if (values.nombre.length < 2) {
+                            errors.nombre = 'Debe contener al menos 2 caracteres.';
+                        } else if (!nameRegex.test(values.nombre)) {
+                            errors.nombre = 'Solo se permiten letras.';
+                        }
+
+                        if (!values.idProfesor) {
+                            errors.idProfesor = 'Debe seleccionar un profesor.';
+                        }
+
+                        if (!values.fechaInicio) {
+                            errors.fechaInicio = 'La fecha de inicio es obligatoria.';
+                        }
+
+                        if (!values.fechaFin) {
+                            errors.fechaFin = 'La fecha de finalización es obligatoria.';
+                        } else if (values.fechaInicio && values.fechaFin.isBefore(values.fechaInicio)) {
+                            errors.fechaFin = 'La fecha de finalización debe ser posterior a la fecha de inicio.';
+                        }
+
+                        if (!values.precio) {
+                            errors.precio = 'El precio es obligatorio.';
+                        } else if (!priceRegex.test(values.precio)) {
+                            errors.precio = 'El precio debe ser un número válido con máximo 2 decimales.';
+                        }
+
+
+                        return errors;
+                    }}
                     onSubmit={handleRegistrar}
                 >
                     {({ values, setFieldValue }) => (

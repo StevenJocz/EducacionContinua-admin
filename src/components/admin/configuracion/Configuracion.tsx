@@ -13,7 +13,7 @@ import Vias from './vias/Vias';
 import FAQS from './faqs/FAQS';
 
 const configuracion = () => {
-    const [menu, setMenu] = useState(0);
+    const [menu, setMenu] = useState(1);
 
     const handdleParametro = (opcion: number) => {
         setMenu(opcion);
@@ -100,19 +100,7 @@ const configuracion = () => {
                 ) : menu == 5 ? (
                     <FAQS />
                 ) : (
-                    <div className={style.Configuracion_Home}>
-                        <p>Configurar los parámetros es la clave para garantizar un funcionamiento óptimo y ajustado a tus necesidades.</p>
-                        <Image
-                            src={img}
-                            alt="Imagen de fondo"
-                            className={style.ImagenFondo}
-                            width={400}
-                            height={400}
-                            placeholder="blur"
-                            blurDataURL="data:image/svg+xml;base64,..."
-                        />
-
-                    </div>
+                    <Dependencias />
                 )}
             </div>
         </div>
