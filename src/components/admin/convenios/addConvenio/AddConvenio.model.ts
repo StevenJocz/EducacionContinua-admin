@@ -1,20 +1,20 @@
 export interface ConvenioRegistrosModel {
     id: number;
-    nombres: string;
+    convenioId: number;
+    nombre: string;
     tipoDocumento: string;
     documento: string;
 }
 
 export interface ConvenioIdModel {
     id: number;
-    nombres: string;
+    nombre: string;
     nit: string;
     celular: number;
     correo: string;
-    fechaInicio: string;
-    fechaFin: string;
+    fechaInicio: Date | null
+    fechaFin: Date | null
     observacion: string;
     idCurso: number;
-    estado: boolean;
     registros: ConvenioRegistrosModel[];
 }

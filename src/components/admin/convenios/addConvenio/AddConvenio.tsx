@@ -12,28 +12,38 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { importarExcel, mapConvenioRegistros } from '@/utils/ImportarExcel';
 import { Tabla } from '@/components/tabla';
 import dayjs from 'dayjs';
+import ButtonSubmit from '@/components/button/ButtonSubmit';
+import api from '@/service/Api.service';
+import { ListCurso } from '../../cursos/Cursos.model';
+import { fetchListaCursos } from '../../cursos/Cursos.service';
 
 interface Props {
   id: number;
   onClose: () => void;
 }
 const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<ConvenioIdModel | null>(null)
   const [registros, setRegistros] = useState<ConvenioRegistrosModel[]>([]);
   const [mensaje, setMensaje] = useState("");
-
+  const [cursos, setCursos] = useState<ListCurso[]>([])
 
   useEffect(() => {
+    handleCursos();
     if (id === 0) return;
     handleData(id);
   }, [id]);
 
+  const handleCursos = async () => {
+    const dataFetch: ListCurso[] = await fetchListaCursos();
+    setCursos(dataFetch);
+  };
 
   const handleData = async (id: number) => {
     try {
-      const dataFetch = await fetchIdConvenio(id); 
-      setData(dataFetch[0]); 
-      setRegistros(dataFetch[0]?.registros || []);
+      const dataFetch = await fetchIdConvenio(id);
+      setData(dataFetch);
+      setRegistros(dataFetch?.registros || []);
     } catch (error) {
       console.error("Error al obtener el convenio:", error);
     }
@@ -43,36 +53,41 @@ const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
     importarExcel(event, mapConvenioRegistros, setRegistros);
   };
 
-
-
-  const handleRegistrar = (values: FormikValues) => {
+  const handleRegistrar = async (values: FormikValues) => {
+    setIsLoading(true);
     if (registros.length == 0) {
       setMensaje("Debe agregar al menos una persona al convenio");
+      setIsLoading(false);
       return;
     }
 
     const informacion: ConvenioIdModel = {
       id: id,
-      nombres: values.nombre,
+      nombre: values.nombre,
       nit: values.nit,
       celular: values.celular,
       correo: values.correo,
-      fechaInicio: values.fechaInicio,
-      fechaFin: values.fechaFin,
-      estado: values.estado,
+      fechaInicio: values.fechaInicio ? new Date(values.fechaInicio) : null,
+      fechaFin: values.fechaFin ? new Date(values.fechaFin) : null,
       observacion: values.observacion,
       idCurso: values.idCurso,
       registros: registros
     }
 
-    if (id > 0) {
-      console.log("Actualizar : ", informacion);
-    } else {
-      console.log("Guardar : ", informacion);
+    try {
+      if (id > 0) {
+        console.log("Actualizar : ", informacion);
+      } else {
+         
+        await api.post('Convenios/Post_Create_Convenio', informacion);
+      }
+    } catch (error) {
+      console.error('Error al registrar:', error);
+    } finally {
+      setIsLoading(false);
     }
-
-
   }
+
 
   return (
     <div className={style.AddConvenio}>
@@ -84,7 +99,7 @@ const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
         <Formik
           enableReinitialize={true}
           initialValues={{
-            nombre: data?.nombres || '',
+            nombre: data?.nombre || '',
             nit: data?.nit || '',
             celular: data?.celular || '',
             correo: data?.correo || '',
@@ -92,8 +107,7 @@ const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
             fechaInicio: data?.fechaInicio ? dayjs(data.fechaInicio) : null,
             fechaFin: data?.fechaFin ? dayjs(data.fechaFin) : null,
             idCurso: data?.idCurso || '',
-            estado: data?.estado || '',
-            registro: registros || [],
+
 
           }}
           validate={(values) => {
@@ -165,7 +179,6 @@ const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
                     />
                     <ErrorMessage name='nombre' component={() => <p className={style.Error}>{errors.nombre}</p>} />
                   </div>
-
                   <div>
                     <StyledTextField
                       name='documento'
@@ -231,8 +244,6 @@ const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
                     </LocalizationProvider>
                     <ErrorMessage name='fechaFin' component={() => <p className={style.Error_Fecha}>{errors.fechaFin}</p>} />
                   </div>
-
-
                 </div>
                 <div className={style.Formulario}>
                   <StyledTextArea
@@ -255,17 +266,21 @@ const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
                     onChange={(e) => setFieldValue('idCurso', e.target.value)}
                   >
                     <MenuItem value="0">Seleccione</MenuItem>
+                    {cursos && cursos.map((option) => (
+                      <MenuItem key={option.id} value={option.id}>
+                        {option.titulo}
+                      </MenuItem>
+                    ))}
                   </StyledSelect>
                   <ErrorMessage name="idCurso" component={() => <p className={style.Error}>{errors.idCurso}</p>} />
                 </div>
               </div>
               <div className={style.AddConvenio_Registros}>
                 <div className={style.AddConvenio_Registros_Botones}>
-                <p className={style.Error}>{mensaje}</p>
+                  <p className={style.Error}>{mensaje}</p>
                   <div
                     className={style.Registros_Botones_Label}
                     onClick={() => document.getElementById("xmlInput")?.click()}
-
                   >
                     <IoCloudUpload /> Importar personas del convenio
                   </div>
@@ -277,7 +292,7 @@ const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
                     onChange={handleFileUpload}
                   />
                 </div>
-                {values.registro.length > 0 && (
+                {registros.length > 0 && (
                   <>
                     <p>Aquí podrás ver las personas que recibirán el beneficio del convenio y gestionar su información.</p>
                     <Tabla
@@ -286,14 +301,14 @@ const AddConvenio: React.FC<Props> = ({ id, onClose }) => {
                       verAcciones={false}
                     />
                   </>
-
                 )}
-
               </div>
-              
-              <div className={style.Formulario_Boton}>
-                <button type='submit'>Actualizar información</button>
-              </div>
+              <ButtonSubmit
+                id={id}
+                isLoading={isLoading}
+                isSubmitting={isSubmitting}
+                onClose={onClose}
+              />
             </Form>
           )}
         </Formik>

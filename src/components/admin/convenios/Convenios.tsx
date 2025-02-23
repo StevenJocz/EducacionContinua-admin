@@ -18,14 +18,19 @@ const Convenios = () => {
         handleData();
     }, []);
 
-    const handleData = () => {
-        const dataFetch = fetchData();
+    const handleData = async () => {
+        const dataFetch: ConveniosModel[] = await fetchData();
         setData(dataFetch);
     }
 
     const handleVerAdd = (id: number) => {
         setId(id);
         setVerAdd(!verAdd);
+    }
+
+    const handleOnClose = () => {
+        setVerAdd(false);
+        handleData();
     }
     return (
         <div className={style.Convenios}>
@@ -44,7 +49,7 @@ const Convenios = () => {
             {verAdd ? (
                 <AddConvenio
                     id={id}
-                    onClose={() => setVerAdd(false)}
+                    onClose={() => handleOnClose()}
                 />
             ) : (
                 <>

@@ -34,7 +34,10 @@ const Tabla: React.FC<DataTableProps> = ({
 
     if (!data || data.length === 0) return <p>No hay datos disponibles</p>;
 
-    const columns = data.length > 0 ? Object.keys(data[0]).filter(column => column !== 'id') : [];
+    const columns = data.length > 0
+        ? Object.keys(data[0]).filter(column => column !== 'id' && column !== 'convenioId')
+        : [];
+
 
     const normalizeText = (text: string) => {
         return text

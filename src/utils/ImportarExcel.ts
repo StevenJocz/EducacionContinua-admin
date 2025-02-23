@@ -28,7 +28,8 @@ export const importarExcel = <T,>(
 
 export const mapConvenioRegistros = (row: any, index: number): ConvenioRegistrosModel => ({
     id: index + 1,
-    nombres: row["Nombres"] || "",
+    convenioId: 0,
+    nombre: row["Nombres"] || "",
     tipoDocumento: row["Tipo Documento"] || "",
-    documento: row["Documento"] || ""
-  });
+    documento: String(row["Documento"] ?? "")
+});
